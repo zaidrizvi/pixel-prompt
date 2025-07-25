@@ -45,17 +45,17 @@ const AboutSection = () => {
 
   const milestones = [
     {
-      year: "2023",
+      year: "2024",
       event: "Founded Pixel Prompt",
       description: "Started with a vision to make brands go viral",
     },
     {
-      year: "2024",
+      year: "2025",
       event: "First Celebrity Partnership",
       description: "description here",
     },
     {
-      year: "2024",
+      year: "2025",
       event: "G-SHOCK Collaboration",
       description: "YOUR Desicription here",
     },
@@ -95,8 +95,8 @@ const AboutSection = () => {
             </span>
           </motion.h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
-            We're the creative minds behind India's most viral campaigns, making
-            brands unforgettable! ✨
+            We’re Pixel Prompt — a marketing agency where ideas go viral, brands
+            shine, and Gen Z attention is captured. 🌟
           </p>
         </div>
 
@@ -109,25 +109,23 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
-              We Don't Just Create Content, We Create{" "}
-              <span className="text-neon-pink">Viral Moments</span>
+              We Don’t Just Create Content, We Create{" "}
+              <span className="text-neon-pink">Iconic Brands</span>
             </h3>
 
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed transition-colors duration-300">
-              At Pixel Prompt, we're obsessed with one thing: making brands go
-              viral. From managing celebrities' social presence to creating
-              campaigns that break the internet, we know exactly what makes
-              content shareable.
+              At Pixel Prompt, we’re experts in making brands go viral. Whether
+              it’s managing celebrity campaigns, influencer marketing, UGC
+              production, or social media strategy — we do it all, and we do it
+              loud!
             </p>
 
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed transition-colors duration-300">
-              Our journey started with a simple belief - every brand has the
-              potential to create viral moments. Today, we've proven this with
-              partnerships like{" "}
+              We’ve worked with bold names like{" "}
               <strong className="text-neon-pink">G-SHOCK</strong> and{" "}
-              <strong className="text-electric-blue">OPPO</strong>, generating
-              billions of impressions and transforming how brands connect with
-              Gen Z.
+              <strong className="text-electric-blue">OPPO</strong>, driving
+              jaw-dropping content reach and unmatched engagement across
+              platforms.
             </p>
 
             {/* Key Features */}
