@@ -92,7 +92,7 @@ const Header = () => {
                   to="/contact"
                   className="px-6 py-3 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 flex items-center space-x-2"
                 >
-                  <span>Get Viral</span>
+                  <span>Enquiry Now</span>
                   <ArrowRight size={16} />
                 </Link>
               </motion.div>
