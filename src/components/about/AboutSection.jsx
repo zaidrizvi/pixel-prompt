@@ -96,7 +96,7 @@ const AboutSection = () => {
           </motion.h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
             We’re Pixel Prompt — a marketing agency where ideas go viral, brands
-            shine, and Gen Z attention is captured. 🌟
+            shine. 🌟
           </p>
         </div>
 
