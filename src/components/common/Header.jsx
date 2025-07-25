@@ -22,11 +22,11 @@ const Header = () => {
   }, [location]);
 
   const navItems = [
-    { name: 'Home', path: '/', icon: '🏠' },
-    { name: 'About', path: '/about', icon: '✨' },
-    { name: 'Services', path: '/services', icon: '🚀' },
-    { name: 'Portfolio', path: '/portfolio', icon: '🎯' },
-    { name: 'Contact', path: '/contact', icon: '💬' }
+    { name: 'Home', path: '/', icon: '' },
+    { name: 'About', path: '/about', icon: '' },
+    { name: 'Services', path: '/services', icon: '' },
+    { name: 'Portfolio', path: '/portfolio', icon: '' },
+    { name: 'Contact', path: '/contact', icon: '' }
   ];
 
   return (
