@@ -110,7 +110,7 @@ const Portfolio = () => {
             className="text-4xl md:text-6xl font-cyber font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-neon-pink to-electric-blue bg-clip-text text-transparent">
-              VIRAL PORTFOLIO
+             PORTFOLIO
             </span>
           </motion.h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
