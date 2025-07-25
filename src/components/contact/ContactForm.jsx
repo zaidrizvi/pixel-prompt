@@ -56,7 +56,7 @@ ${formData.message}
 Sent from Pixel Prompt Contact Form
     `;
 
-    const emailUrl = `mailto:zaidd.rizvii@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const emailUrl = `mailto:pixelpromptofficial@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     window.open(emailUrl, '_blank');
 
