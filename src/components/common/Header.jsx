@@ -53,7 +53,7 @@ const Header = () => {
               </div>
               <div className="flex flex-col">
                 <motion.span
-                  className="bg-gradient-to-r from-gray-900 via-neon-pink to-electric-blue dark:from-white dark:via-neon-pink dark:to-electric-blue bg-clip-text text-transparent font-cyber text-2xl font-bold tracking-wider group-hover:scale-105 transition-transform duration-300"
+                  className="bg-gradient-to-r from-gray-900 via-neon-pink to-electric-blue dark:from-white dark:via-neon-pink dark:to-electric-blue bg-clip-text text-transparent font-cyber text-1xl md:text-2xl font-bold tracking-wider group-hover:scale-105 transition-transform duration-300"
                   whileHover={{ scale: 1.05 }}
                 >
                   PIXEL PROMPT
