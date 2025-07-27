@@ -13,19 +13,22 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
 
-  useEffect(() => {
-    // Check localStorage for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setDarkMode(false);
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
+ useEffect(() => {
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    setDarkMode(true);
+    document.documentElement.classList.add('dark');
+  } else if (savedTheme === 'light') {
+    setDarkMode(false);
+    document.documentElement.classList.remove('dark');
+  } else {
+    // Default to light mode
+    setDarkMode(false);
+    document.documentElement.classList.remove('dark');
+  }
+}, []);
+
 
   const toggleDarkMode = () => {
     const newMode = !darkMode;
