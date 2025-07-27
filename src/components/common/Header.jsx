@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Zap } from 'lucide-react';
+import { Menu, X, ArrowRight, Zap, Home, User, Briefcase, FolderOpen, Mail } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
@@ -22,11 +22,11 @@ const Header = () => {
   }, [location]);
 
   const navItems = [
-    { name: 'Home', path: '/', icon: '' },
-    { name: 'About', path: '/about', icon: '' },
-    { name: 'Services', path: '/services', icon: '' },
-    { name: 'Portfolio', path: '/portfolio', icon: '' },
-    { name: 'Contact', path: '/contact', icon: '' }
+    { name: 'Home', path: '/', icon: <Home size={16} /> },
+    { name: 'About', path: '/about', icon: <User size={16} /> },
+    { name: 'Services', path: '/services', icon: <Briefcase size={16} /> },
+    { name: 'Portfolio', path: '/portfolio', icon: <FolderOpen size={16} /> },
+    { name: 'Contact', path: '/contact', icon: <Mail size={16} /> }
   ];
 
   return (
@@ -41,53 +41,62 @@ const Header = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center space-x-4 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/30 to-electric-blue/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img
-                  src="/pixel-prompt-logo.png"
-                  alt="Pixel Prompt Logo"
-                  className="relative h-14 w-14 rounded-2xl object-contain transform group-hover:scale-110 transition-all duration-300 shadow-lg"
-                />
-              </div>
-              <div className="flex flex-col">
-                <motion.span
-                  className="bg-gradient-to-r from-gray-900 via-neon-pink to-electric-blue dark:from-white dark:via-neon-pink dark:to-electric-blue bg-clip-text text-transparent font-cyber text-1xl md:text-2xl font-bold tracking-wider group-hover:scale-105 transition-transform duration-300"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  PIXEL PROMPT
-                </motion.span>
-               
-              </div>
-            </Link>
+          <div className="flex items-center h-20">
+            
+            {/* Logo Section */}
+            <div className="flex-shrink-0">
+              <Link to="/" className="flex items-center space-x-4 group">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/30 to-electric-blue/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <img
+                    src="/pixel-prompt-logo.png"
+                    alt="Pixel Prompt Logo"
+                    className="relative h-14 w-14 rounded-2xl object-contain transform group-hover:scale-110 transition-all duration-300 shadow-lg"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <motion.span
+                    className="bg-gradient-to-r from-gray-900 via-neon-pink to-electric-blue dark:from-white dark:via-neon-pink dark:to-electric-blue bg-clip-text text-transparent font-cyber text-xl md:text-2xl font-bold tracking-wider group-hover:scale-105 transition-transform duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    PIXEL PROMPT
+                  </motion.span>
+                </div>
+              </Link>
+            </div>
 
-            {/* Desktop */}
-            <nav className="hidden lg:flex items-center space-x-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`relative px-4 py-2 rounded-full font-medium transition-all duration-300 group ${
-                    location.pathname === item.path
-                      ? 'text-white bg-gradient-to-r from-neon-pink to-electric-blue shadow-lg shadow-neon-pink/25'
-                      : 'text-gray-700 dark:text-white hover:text-neon-pink dark:hover:text-neon-pink hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <span className="flex items-center space-x-2">
-                    <span className="text-sm">{item.icon}</span>
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden lg:flex flex-1 justify-center">
+              <div className="flex items-center space-x-2 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl rounded-full px-6 py-3 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`relative px-6 py-3 rounded-full font-semibold transition-all duration-300 group flex items-center space-x-2 ${
+                      location.pathname === item.path
+                        ? 'text-white bg-gradient-to-r from-neon-pink to-electric-blue shadow-lg shadow-neon-pink/25'
+                        : 'text-gray-700 dark:text-white hover:text-neon-pink dark:hover:text-neon-pink hover:bg-gray-100/80 dark:hover:bg-gray-800/60'
+                    }`}
+                  >
+                    <span className={`text-sm ${location.pathname === item.path ? 'text-white' : 'text-gray-400 group-hover:text-neon-pink'} transition-colors duration-300`}>
+                      {item.icon}
+                    </span>
                     <span>{item.name}</span>
-                  </span>
-                  {location.pathname === item.path && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-neon-pink to-electric-blue rounded-full -z-10"
-                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                </Link>
-              ))}
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="ml-4">
+                    {location.pathname === item.path && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-gradient-to-r from-neon-pink to-electric-blue rounded-full -z-10"
+                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+
+            {/* Desktop CTA & Theme Toggle */}
+            <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/contact"
                   className="px-6 py-3 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 flex items-center space-x-2"
@@ -97,31 +106,37 @@ const Header = () => {
                 </Link>
               </motion.div>
               <ThemeToggle />
+            </div>
+
+            {/* Tablet Navigation */}
+            <nav className="hidden md:flex lg:hidden items-center space-x-1 flex-1 justify-center">
+              <div className="flex items-center space-x-1 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl rounded-full px-3 py-2 border border-gray-200/50 dark:border-gray-700/50">
+                {navItems.slice(0, 4).map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      location.pathname === item.path
+                        ? 'text-white bg-gradient-to-r from-neon-pink to-electric-blue'
+                        : 'text-gray-700 dark:text-white hover:text-neon-pink hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    <span className="flex items-center space-x-1">
+                      <span className="text-xs">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </nav>
 
-            {/* Tablet */}
-            <nav className="hidden md:flex lg:hidden items-center space-x-1">
-              {navItems.slice(0, 4).map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    location.pathname === item.path
-                      ? 'text-white bg-gradient-to-r from-neon-pink to-electric-blue'
-                      : 'text-gray-700 dark:text-white hover:text-neon-pink hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <span className="flex items-center space-x-1">
-                    <span className="text-xs">{item.icon}</span>
-                    <span>{item.name}</span>
-                  </span>
-                </Link>
-              ))}
+            {/* Tablet Theme Toggle */}
+            <div className="hidden md:flex lg:hidden">
               <ThemeToggle />
-            </nav>
+            </div>
 
-            {/* Mobile */}
-            <div className="md:hidden flex items-center space-x-3">
+            {/* Mobile Controls */}
+            <div className="md:hidden flex items-center space-x-3 ml-auto">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/contact"
@@ -175,7 +190,7 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 top-24"
+              className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 top-20"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
@@ -183,7 +198,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
-              className="md:hidden fixed top-[5.5rem] left-4 right-4 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 z-50 overflow-hidden"
+              className="md:hidden fixed top-24 left-4 right-4 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 z-50 overflow-hidden"
             >
               <div className="bg-gradient-to-r from-neon-pink/10 to-electric-blue/10 p-4 border-b border-gray-200 dark:border-gray-800">
                 <div className="flex items-center space-x-3">

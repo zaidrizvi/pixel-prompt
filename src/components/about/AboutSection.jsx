@@ -192,7 +192,7 @@ const AboutSection = () => {
               {/* Smaller Images */}
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=300&h=200&fit=crop"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDe7Tj7tcrQdPG9Qd6a-EodZvbquOYbHHsGA&s"
                   alt="Brand collaboration"
                   className="w-full h-32 object-cover rounded-2xl"
                 />
@@ -200,33 +200,11 @@ const AboutSection = () => {
                 <div className="absolute bottom-2 left-2 text-white text-xs font-semibold">
                   Brand Partners
                 </div>
-              </div>
-
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1542038784456-1ea8e843b714?w=300&h=200&fit=crop"
-                  alt="Creative process"
-                  className="w-full h-32 object-cover rounded-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
-                <div className="absolute bottom-2 left-2 text-white text-xs font-semibold">
-                  Creative Studio
-                </div>
-              </div>
+              </div>       
             </div>
 
-            {/* Floating Achievement */}
-            <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-xl border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center space-x-2 mb-2">
-                <Star className="w-4 h-4 text-yellow-500" />
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  India's #1
-                </span>
-              </div>
-              <div className="text-lg font-bold text-gray-900 dark:text-white">
-                SMM Agency
-              </div>
-            </div>
+          
+            
           </motion.div>
         </div>
 
