@@ -1,95 +1,118 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Instagram, Eye, ArrowRight, Star, Users, TrendingUp } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ExternalLink,
+  Instagram,
+  Eye,
+  ArrowRight,
+  Star,
+  Users,
+  TrendingUp,
+} from "lucide-react";
+import image1 from "../../assets/image1.png";
+import image2 from "../../assets/image2.png";
+import image from "../../assets/image.png";
+
 
 const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
 
-  const projects = [
-    {
-      id: 1,
-      title: "G-SHOCK Viral Campaign",
-      category: "brand-collaboration",
-      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop",
-      description: "Created a viral TikTok challenge that generated 50M+ views and increased brand awareness by 300%",
-      tags: ["G-SHOCK", "TikTok Challenge", "Viral Marketing"],
-      stats: { views: "50M+", engagement: "12%", reach: "25M+" },
-      gradient: "from-blue-600 to-purple-600"
-    },
-    {
-      id: 2,
-      title: "OPPO Celebrity Launch",
-      category: "celebrity-management",
-      image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=600&h=400&fit=crop",
-      description: "Managed complete celebrity endorsement campaign featuring Bollywood stars for new smartphone launch",
-      tags: ["OPPO", "Celebrity", "Product Launch"],
-      stats: { views: "30M+", engagement: "18%", reach: "15M+" },
-      gradient: "from-green-500 to-teal-500"
-    },
-    {
-      id: 3,
-      title: "Fashion Influencer Network",
-      category: "influencer-marketing",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      description: "Built a network of 500+ fashion influencers delivering authentic content for luxury fashion brands",
-      tags: ["Fashion", "Influencer Network", "Luxury Brands"],
-      stats: { views: "80M+", engagement: "25%", reach: "40M+" },
-      gradient: "from-pink-500 to-rose-500"
-    },
-    {
-      id: 4,
-      title: "UGC Food Campaign",
-      category: "ugc-content",
-      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-      description: "Created viral food challenge encouraging users to share recipes, generating massive organic reach",
-      tags: ["Food & Beverage", "UGC Challenge", "Community"],
-      stats: { views: "100M+", engagement: "35%", reach: "60M+" },
-      gradient: "from-orange-500 to-red-500"
-    },
-    {
-      id: 5,
-      title: "Professional Brand Shoot",
-      category: "professional-shoots",
-      image: "https://images.unsplash.com/photo-1542038784456-1ea8e843b714?w=600&h=400&fit=crop",
-      description: "High-end product photography and videography for premium lifestyle brand with cinematic quality",
-      tags: ["Photography", "Premium Brand", "Cinematic"],
-      stats: { views: "20M+", engagement: "40%", reach: "10M+" },
-      gradient: "from-indigo-500 to-blue-500"
-    },
-    {
-      id: 6,
-      title: "Social Media Transformation",
-      category: "social-media",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
-      description: "Complete social media makeover resulting in 500% follower growth and viral content consistently",
-      tags: ["SMM", "Growth Strategy", "Content Creation"],
-      stats: { views: "150M+", engagement: "28%", reach: "75M+" },
-      gradient: "from-cyan-500 to-blue-500"
-    }
-  ];
+ const projects = [
+  {
+    id: 1,
+    title: "G-SHOCK × Pixel Prompt",
+    category: "brand-collaboration",
+    image: image2,
+    description:
+      "Handled digital promotions and curated social presence for G-SHOCK × Pixel Prompt campaign.",
+    tags: ["G-SHOCK", "Campaign", "Social Reach"],
+    stats: { views: "8M+", engagement: "9%", reach: "12M+" },
+    gradient: "from-blue-600 to-purple-600",
+  },
+  {
+    id: 2,
+    title: "OPPO × Pixel Prompt",
+    category: "celebrity-management",
+    image: image1,
+    description:
+      "Promoted OPPO's celebrity event campaign through Pixel Prompt’s online amplification strategy.",
+    tags: ["OPPO", "Promotion", "Celebrity Event"],
+    stats: { views: "4M+", engagement: "11%", reach: "6M+" },
+    gradient: "from-green-500 to-teal-500",
+  },
+  {
+    id: 3,
+    title: "Fashion Influencer Network",
+    category: "influencer-marketing",
+    image:
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+    description:
+      "Built a fashion influencer loop of 500+ creators for client collaborations.",
+    tags: ["Fashion", "Influencer", "Campaign"],
+    stats: { views: "18M+", engagement: "21%", reach: "22M+" },
+    gradient: "from-pink-500 to-rose-500",
+  },
+  
+  {
+    id: 5,
+    title: "Brand Shoot Showcase",
+    category: "professional-shoots",
+    image: image,
+    description:
+      "Shot premium product visuals for brand positioning ",
+    tags: ["Photography", "Branding", "Shoots"],
+    stats: { views: "2M+", engagement: "5%", reach: "3M+" },
+    gradient: "from-indigo-500 to-blue-500",
+  },
+  {
+    id: 6,
+    title: "Social Revamp",
+    category: "social-media",
+    image:
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
+    description:
+      "Overhauled Instagram aesthetics, consistency and brand voice — driving new audience growth.",
+    tags: ["SMM", "Revamp", "Instagram Growth"],
+    stats: { views: "12M+", engagement: "14%", reach: "10M+" },
+    gradient: "from-cyan-500 to-blue-500",
+  },
+];
+
 
   const categories = [
-    { id: 'all', name: 'All Projects', icon: <Star size={16} /> },
-    { id: 'social-media', name: 'SMM', icon: <Instagram size={16} /> },
-    { id: 'influencer-marketing', name: 'Influencer', icon: <Users size={16} /> },
-    { id: 'celebrity-management', name: 'Celebrity', icon: <Star size={16} /> },
-    { id: 'brand-collaboration', name: 'Brand Partnerships', icon: <TrendingUp size={16} /> },
-    { id: 'ugc-content', name: 'UGC', icon: <ExternalLink size={16} /> },
-    { id: 'professional-shoots', name: 'Shoots', icon: <Eye size={16} /> }
+    { id: "all", name: "All Projects", icon: <Star size={16} /> },
+    { id: "social-media", name: "SMM", icon: <Instagram size={16} /> },
+    {
+      id: "influencer-marketing",
+      name: "Influencer",
+      icon: <Users size={16} />,
+    },
+    { id: "celebrity-management", name: "Celebrity", icon: <Star size={16} /> },
+    {
+      id: "brand-collaboration",
+      name: "Brand Partnerships",
+      icon: <TrendingUp size={16} />,
+    },
+    { id: "ugc-content", name: "UGC", icon: <ExternalLink size={16} /> },
+    { id: "professional-shoots", name: "Shoots", icon: <Eye size={16} /> },
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
   return (
     <section className="min-h-screen bg-white dark:bg-black py-20 transition-colors duration-300">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.1) 1px, transparent 0)`,
-          backgroundSize: '60px 60px'
-        }}></div>
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.1) 1px, transparent 0)`,
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -101,20 +124,23 @@ const Portfolio = () => {
             className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-neon-pink/10 to-electric-blue/10 rounded-full border border-neon-pink/20 mb-6"
           >
             <Eye className="w-4 h-4 text-neon-pink mr-2" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Our Success Stories</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Our Success Stories
+            </span>
           </motion.div>
 
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-cyber font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-neon-pink to-electric-blue bg-clip-text text-transparent">
-             PORTFOLIO
+              PORTFOLIO
             </span>
           </motion.h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            From G-SHOCK collaborations to celebrity management - here's how we've made brands go viral! 🔥
+            From G-SHOCK collaborations to celebrity management - here's how
+            we've made brands go viral! 🔥
           </p>
         </div>
 
@@ -126,8 +152,8 @@ const Portfolio = () => {
               onClick={() => setActiveFilter(category.id)}
               className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 text-sm ${
                 activeFilter === category.id
-                  ? 'bg-gradient-to-r from-neon-pink to-electric-blue text-white shadow-lg scale-105'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:scale-105'
+                  ? "bg-gradient-to-r from-neon-pink to-electric-blue text-white shadow-lg scale-105"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:scale-105"
               }`}
             >
               {category.icon}
@@ -150,16 +176,18 @@ const Portfolio = () => {
                 className="group relative bg-white dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-neon-pink/50 dark:hover:border-neon-pink/50 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
               >
                 {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden flex items-center justify-center bg-white">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="max-h-full max-w-full object-contain"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                  
+
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
+                  ></div>
+
                   {/* Stats Overlay */}
-                  
 
                   {/* Action Buttons */}
                   <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -182,9 +210,13 @@ const Portfolio = () => {
 
                 {/* Project Info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">{project.description}</p>
-                  
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
@@ -198,11 +230,12 @@ const Portfolio = () => {
                   </div>
 
                   {/* Stats Bar */}
-                  
                 </div>
 
                 {/* Hover Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}></div>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
+                ></div>
               </motion.div>
             ))}
           </div>
@@ -215,9 +248,10 @@ const Portfolio = () => {
               Ready to Create Your Success Story?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
-              Join the brands that have gone viral with our proven strategies. Let's make your next campaign unforgettable!
+              Join the brands that have gone viral with our proven strategies.
+              Let's make your next campaign unforgettable!
             </p>
-            <motion.button 
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 flex items-center space-x-2 mx-auto"

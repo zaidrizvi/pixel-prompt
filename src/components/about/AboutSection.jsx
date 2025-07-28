@@ -14,6 +14,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import image1 from "../../assets/image1.png";
+import image2 from "../../assets/image2.png";
+
+import pixel from "../../assets/pixel.png"
 
 const AboutSection = () => {
   const stats = [
@@ -43,24 +47,29 @@ const AboutSection = () => {
     },
   ];
 
-  const milestones = [
-    {
-      year: "2024",
-      event: "Founded Pixel Prompt",
-      description: "Started with a vision to make brands go viral",
-    },
-    {
-      year: "2025",
-      event: "First Celebrity Partnership",
-      description: "description here",
-    },
-    {
-      year: "2025",
-      event: "G-SHOCK Collaboration",
-      description: "YOUR Desicription here",
-    },
-    { year: "2025", event: "OPPO Partnership", description: "descriptionn" },
-  ];
+ const milestones = [
+  {
+    year: "2024",
+    event: "Launched Pixel Prompt",
+    description: "Started as a creative agency focused on digital-first brand promotions.",
+  },
+  {
+    year: "2025",
+    event: "First Celebrity Campaign",
+    description: "Collaborated with influencers and celebs for product-focused campaigns.",
+  },
+  {
+    year: "2025",
+    event: "G-SHOCK × Pixel Prompt",
+    description: "Handled online promotion and social media rollout for the G-SHOCK event.",
+  },
+  {
+    year: "2025",
+    event: "OPPO x Pixel Prompt",
+    description: "Amplified OPPO's event presence through digital promotion & coverage.",
+  },
+];
+
 
   return (
     <section className="min-h-screen bg-white dark:bg-black py-20 transition-colors duration-500 relative overflow-hidden">
@@ -178,30 +187,20 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-4">
-              {/* Main Image */}
-              <div className="col-span-2 relative">
-                <img
-                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop"
-                  alt="Team collaboration"
-                  className="w-full h-48 object-cover rounded-3xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-neon-pink/20 to-electric-blue/20 rounded-3xl"></div>
-              </div>
+           <div className="grid grid-cols-2 gap-4">
+  {/* Main Image */}
+  <div className="col-span-2 relative">
+    <img
+      src={pixel}
+      alt="Creative agency workspace"
+      className="w-full h-[250px] object-cover rounded-3xl shadow-2xl"
+    />
+    <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/20 to-blue-500/20 rounded-3xl"></div>
+  </div>
 
-              {/* Smaller Images */}
-              <div className="relative">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDe7Tj7tcrQdPG9Qd6a-EodZvbquOYbHHsGA&s"
-                  alt="Brand collaboration"
-                  className="w-full h-32 object-cover rounded-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
-                <div className="absolute bottom-2 left-2 text-white text-xs font-semibold">
-                  Brand Partners
-                </div>
-              </div>       
-            </div>
+ 
+</div>
+
 
           
             

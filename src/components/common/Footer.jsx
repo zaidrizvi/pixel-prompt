@@ -171,8 +171,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Mail className="text-electric-blue mt-1 flex-shrink-0" size={18} />
                 <div>
-                  <a href="mailto:contact@pixelprompt.net" className="text-gray-600 dark:text-gray-400 hover:text-electric-blue transition-colors">
-                    contact@pixelprompt.net
+                  <a href="mailto: pixelpromptofficial@gmail.com" className="text-gray-600 dark:text-gray-400 hover:text-electric-blue transition-colors">
+                    pixelpromptofficial@gmail.com
                   </a>
                   <div className="text-xs text-gray-500 dark:text-gray-500">Quick Response</div>
                 </div>
@@ -227,7 +227,7 @@ const Footer = () => {
             
             <div className="flex items-center space-x-4">
               <div className="text-xs text-gray-500 dark:text-gray-500">
-                🚀 Making brands viral since 2023
+                🚀 Making brands viral since 2024
               </div>
               
               {/* Back to Top Button */}
