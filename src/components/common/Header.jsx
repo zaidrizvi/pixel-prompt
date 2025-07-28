@@ -98,13 +98,7 @@ const Header = () => {
             {/* Desktop CTA & Theme Toggle */}
             <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  to="/contact"
-                  className="px-8 py-4 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 flex items-center space-x-2"
-                >
-                  <span>Enquiry Now</span>
-                  <ArrowRight size={16} />
-                </Link>
+                
               </motion.div>
               <ThemeToggle />
             </div>
@@ -139,13 +133,7 @@ const Header = () => {
             {/* Mobile Controls */}
             <div className="md:hidden flex items-center space-x-2 sm:space-x-3">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  to="/contact"
-                  className="px-3 py-2 sm:px-4 sm:py-2.5 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full text-xs sm:text-sm hover:shadow-lg transition-all duration-300 flex items-center space-x-1 sm:space-x-2"
-                >
-                  <Zap size={12} className="sm:w-4 sm:h-4" />
-                  <span>Contact</span>
-                </Link>
+                
               </motion.div>
               
               {/* Theme Toggle for Mobile */}
