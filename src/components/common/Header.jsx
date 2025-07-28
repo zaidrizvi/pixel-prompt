@@ -36,13 +36,13 @@ const Header = () => {
         animate={{ y: 0 }}
         className={`fixed w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-neon-pink/30 shadow-lg shadow-gray-200/20 dark:shadow-neon-pink/10'
-            : 'bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200/30 dark:border-neon-pink/20'
+            ? 'bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200/35 shadow-lg shadow-gray-200/20 dark:shadow-neon-pink/10'
+            : 'bg-white/90 dark:bg-black/90 backdrop-blur-md '
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main Header Row - Increased Heights */}
-          <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 lg:h-22">
+        <div className=" max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Header Row - Modified Layout */}
+          <div className="flex items-center justify-between h-16 sm:h-18 md:h-24 lg:h-22">
             
             {/* Logo Section */}
             <div className="flex-shrink-0">
@@ -66,41 +66,42 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Desktop Navigation - Centered */}
-            <nav className="hidden lg:flex flex-1 justify-center">
-              <div className="flex items-center space-x-2 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl rounded-full px-8 py-4 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`relative px-6 py-3 rounded-full font-semibold transition-all duration-300 group flex items-center space-x-2 ${
-                      location.pathname === item.path
-                        ? 'text-white bg-gradient-to-r from-neon-pink to-electric-blue shadow-lg shadow-neon-pink/25'
-                        : 'text-gray-700 dark:text-white hover:text-neon-pink dark:hover:text-neon-pink hover:bg-gray-100/80 dark:hover:bg-gray-800/60'
-                    }`}
-                  >
-                    <span className={`text-sm ${location.pathname === item.path ? 'text-white' : 'text-gray-400 group-hover:text-neon-pink'} transition-colors duration-300`}>
-                      {item.icon}
-                    </span>
-                    <span>{item.name}</span>
-                    {location.pathname === item.path && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 bg-gradient-to-r from-neon-pink to-electric-blue rounded-full -z-10"
-                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                      />
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </nav>
+            {/* Desktop Navigation & Theme Toggle - Right Aligned */}
+            <div className="hidden lg:flex items-center space-x-6">
+              {/* Navigation */}
+              <nav className="flex items-center">
+                <div className="flex items-center space-x-2">
 
-            {/* Desktop CTA & Theme Toggle */}
-            <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                
-              </motion.div>
-              <ThemeToggle />
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className={`relative px-6 py-3 rounded-full font-semibold transition-all duration-300 group flex items-center space-x-2 ${
+                        location.pathname === item.path
+                          ? 'text-white bg-gradient-to-r from-neon-pink to-electric-blue shadow-lg shadow-neon-pink/25'
+                          : 'text-gray-700 dark:text-white hover:text-neon-pink dark:hover:text-neon-pink hover:bg-gray-100/80 dark:hover:bg-gray-800/60'
+                      }`}
+                    >
+                      <span className={`text-sm ${location.pathname === item.path ? 'text-white' : 'text-gray-400 group-hover:text-neon-pink'} transition-colors duration-300`}>
+                        {item.icon}
+                      </span>
+                      <span>{item.name}</span>
+                      {location.pathname === item.path && (
+                        <motion.div
+                          layoutId="activeTab"
+                          className="absolute inset-0 bg-gradient-to-r from-neon-pink to-electric-blue rounded-full -z-10"
+                          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                        />
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+
+              {/* Theme Toggle */}
+              <div className="flex-shrink-0">
+                <ThemeToggle />
+              </div>
             </div>
 
             {/* Tablet Navigation */}
