@@ -40,24 +40,24 @@ const Header = () => {
             : 'bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200/30 dark:border-neon-pink/20'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           {/* Main Header Row */}
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
             
             {/* Logo Section */}
             <div className="flex-shrink-0">
-              <Link to="/" className="flex items-center space-x-2 sm:space-x-4 group">
+              <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/30 to-electric-blue/30 rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/30 to-electric-blue/30 rounded-lg sm:rounded-xl lg:rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <img
                     src="/pixel-prompt-logo.png"
                     alt="Pixel Prompt Logo"
-                    className="relative h-10 w-10 sm:h-14 sm:w-14 rounded-xl sm:rounded-2xl object-contain transform group-hover:scale-110 transition-all duration-300 shadow-lg"
+                    className="relative h-8 w-8 sm:h-10 sm:w-10 lg:h-14 lg:w-14 rounded-lg sm:rounded-xl lg:rounded-2xl object-contain transform group-hover:scale-110 transition-all duration-300 shadow-lg"
                   />
                 </div>
                 <div className="flex flex-col">
                   <motion.span
-                    className="bg-gradient-to-r from-gray-900 via-neon-pink to-electric-blue dark:from-white dark:via-neon-pink dark:to-electric-blue bg-clip-text text-transparent font-cyber text-lg sm:text-xl md:text-2xl font-bold tracking-wider group-hover:scale-105 transition-transform duration-300"
+                    className="bg-gradient-to-r from-gray-900 via-neon-pink to-electric-blue dark:from-white dark:via-neon-pink dark:to-electric-blue bg-clip-text text-transparent font-cyber text-sm sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wider group-hover:scale-105 transition-transform duration-300"
                     whileHover={{ scale: 1.05 }}
                   >
                     PIXEL PROMPT
@@ -137,21 +137,26 @@ const Header = () => {
             </div>
 
             {/* Mobile Controls */}
-            <div className="md:hidden flex items-center space-x-2">
+            <div className="md:hidden flex items-center space-x-1 sm:space-x-2">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/contact"
-                  className="px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full text-xs sm:text-sm hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
+                  className="px-2 py-1.5 sm:px-3 sm:py-2 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full text-xs hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
                 >
-                  <Zap size={12} className="sm:w-4 sm:h-4" />
-                  <span>Contact</span>
+                  <Zap size={10} className="sm:w-3 sm:h-3" />
+                  <span className="hidden xs:inline">Contact</span>
                 </Link>
               </motion.div>
-              {/* Removed ThemeToggle from mobile */}
+              
+              {/* Theme Toggle for Mobile */}
+              <div className="scale-75 sm:scale-100">
+                <ThemeToggle />
+              </div>
+              
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
+                className="p-1.5 sm:p-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 <AnimatePresence mode="wait">
@@ -163,7 +168,7 @@ const Header = () => {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <X size={20} className="sm:w-6 sm:h-6" />
+                      <X size={18} className="sm:w-5 sm:h-5" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -173,7 +178,7 @@ const Header = () => {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Menu size={20} className="sm:w-6 sm:h-6" />
+                      <Menu size={18} className="sm:w-5 sm:h-5" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -199,16 +204,22 @@ const Header = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
-              className="md:hidden fixed top-20 left-4 right-4 bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 z-50 overflow-hidden max-h-[calc(100vh-8rem)]"
+              className="md:hidden fixed top-16 sm:top-18 left-2 right-2 sm:left-4 sm:right-4 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 z-50 overflow-hidden max-h-[calc(100vh-5rem)] sm:max-h-[calc(100vh-6rem)]"
             >
               <div className="bg-gradient-to-r from-neon-pink/10 to-electric-blue/10 p-3 sm:p-4 border-b border-gray-200 dark:border-gray-800">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Navigation Menu</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">Navigation Menu</span>
+                  </div>
+                  {/* Additional Theme Toggle in Menu Header */}
+                  <div className="scale-75">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </div>
 
-              <div className="px-3 sm:px-4 py-3 space-y-1 max-h-80 overflow-y-auto">
+              <div className="px-2 sm:px-4 py-2 sm:py-3 space-y-1 max-h-72 sm:max-h-80 overflow-y-auto">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -218,19 +229,19 @@ const Header = () => {
                   >
                     <Link
                       to={item.path}
-                      className={`flex items-center justify-between p-3 rounded-xl text-base transition-all duration-300 group ${
+                      className={`flex items-center justify-between p-2.5 sm:p-3 rounded-lg sm:rounded-xl text-sm sm:text-base transition-all duration-300 group ${
                         location.pathname === item.path
                           ? 'bg-gradient-to-r from-neon-pink to-electric-blue text-white shadow'
                           : 'text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
-                      <span className="flex items-center space-x-3">
-                        <span className="text-lg">{item.icon}</span>
+                      <span className="flex items-center space-x-2 sm:space-x-3">
+                        <span className="text-base sm:text-lg">{item.icon}</span>
                         <span className="font-medium">{item.name}</span>
                       </span>
                       <ArrowRight
-                        size={16}
+                        size={14}
                         className={`transition-transform group-hover:translate-x-1 ${
                           location.pathname === item.path ? 'text-white' : 'text-gray-400'
                         }`}
@@ -240,15 +251,15 @@ const Header = () => {
                 ))}
               </div>
 
-              <div className="px-3 sm:px-4 py-4 sm:py-5 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700">
+              <div className="px-2 sm:px-4 py-3 sm:py-4 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700">
                 <div className="text-center">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Ready to go viral?</p>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3">Ready to go viral?</p>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center space-x-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg transition-all duration-300 text-sm sm:text-base"
+                    className="inline-flex items-center space-x-1 sm:space-x-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg transition-all duration-300 text-xs sm:text-sm"
                     onClick={() => setIsOpen(false)}
                   >
-                    <Zap size={14} className="sm:w-4 sm:h-4" />
+                    <Zap size={12} className="sm:w-4 sm:h-4" />
                     <span>Start Your Campaign</span>
                   </Link>
                 </div>
