@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Instagram,
@@ -9,224 +9,222 @@ import {
   Zap,
   TrendingUp,
   Heart,
+  Palette,
+  BarChart3,
+  Video,
 } from "lucide-react";
-
 import { Link } from "react-router-dom";
 
 const Services = () => {
+  const [visibleSections, setVisibleSections] = useState([]);
+  const sectionRefs = useRef([]);
+
+  // Typewriter effect hook
+  const useTypewriter = (text, speed = 30, startDelay = 0) => {
+    const [displayText, setDisplayText] = useState('');
+    const [isComplete, setIsComplete] = useState(false);
+    const [shouldStart, setShouldStart] = useState(false);
+
+    useEffect(() => {
+      if (!shouldStart) return;
+
+      const timer = setTimeout(() => {
+        let currentIndex = 0;
+        const interval = setInterval(() => {
+          if (currentIndex <= text.length) {
+            setDisplayText(text.slice(0, currentIndex));
+            currentIndex++;
+          } else {
+            setIsComplete(true);
+            clearInterval(interval);
+          }
+        }, speed);
+
+        return () => clearInterval(interval);
+      }, startDelay);
+
+      return () => clearTimeout(timer);
+    }, [text, speed, startDelay, shouldStart]);
+
+    return { displayText, isComplete, setShouldStart };
+  };
+
+  // Typewriter instances
+  const headerTypewriter = useTypewriter("SERVICES", 5, 0);
+  const subtitleTypewriter = useTypewriter("From social media management to celebrity partnerships - we've got everything to make your brand the talk of the town! 🔥", 15, 100);
+
+  // Main 4 services in 2x2 grid - matching your image exactly
   const services = [
-    {
-      icon: <Instagram size={32} />,
-      title: "Social Media Management",
-      description:
-        "Complete social media strategy with daily content, community engagement, and viral campaign creation.",
-      features: [
-        "Content Strategy",
-        "Daily Posting",
-        "Community Management",
-        "Analytics",
-      ],
-      gradient: "from-pink-500 to-rose-500",
-      bgPattern:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <Users size={32} />,
-      title: "Influencer Marketing",
-      description:
-        "Connect with the right influencers to amplify your brand message and reach millions of engaged users.",
-      features: [
-        "Influencer Outreach",
-        "Campaign Management",
-        "ROI Tracking",
-        "Content Collaboration",
-      ],
-      gradient: "from-blue-500 to-cyan-500",
-      bgPattern:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <Star size={32} />,
-      title: "Celebrity Management",
-      description:
-        "Professional celebrity social media management with exclusive brand partnerships and PR strategies.",
-      features: [
-        "Celebrity Partnerships",
-        "PR Management",
-        "Brand Collaborations",
-        "Reputation Management",
-      ],
-      gradient: "from-purple-500 to-indigo-500",
-      bgPattern:
-        "https://images.unsplash.com/photo-1594736797933-d0601ba2b2e5?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <TrendingUp size={32} />,
-      title: "Brand Collaborations",
-      description:
-        "Strategic partnerships with top brands like G-SHOCK and OPPO for maximum market impact.",
-      features: [
-        "Partnership Strategy",
-        "Brand Alignment",
-        "Campaign Execution",
-        "Performance Analytics",
-      ],
-      gradient: "from-green-500 to-emerald-500",
-      bgPattern:
-        "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <Heart size={32} />,
-      title: "UGC Content Creation",
-      description:
-        "Authentic user-generated content campaigns that build trust and drive organic engagement.",
-      features: [
-        "UGC Strategy",
-        "Community Building",
-        "Content Curation",
-        "Authentic Engagement",
-      ],
-      gradient: "from-orange-500 to-red-500",
-      bgPattern:
-        "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <Camera size={32} />,
-      title: "Professional Shoots",
-      description:
-        "High-end photography and videography for luxury brands with creative direction and post-production.",
-      features: [
-        "Photography",
-        "Videography",
-        "Creative Direction",
-        "Post-Production",
-      ],
-      gradient: "from-teal-500 to-blue-500",
-      bgPattern:
-        "https://images.unsplash.com/photo-1542038784456-1ea8e843b714?w=400&h=300&fit=crop",
-    },
-  ];
+  {
+    icon: <Instagram size={24} />,
+    title: "SMM",
+    description: "Strategic Social Media Marketing to build brand presence and engage your audience across all major platforms.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop&crop=center",
+    bgColor: "bg-pink-50",
+    iconColor: "text-pink-600",
+    badgeColor: "bg-pink-100"
+  },
+  {
+    icon: <Users size={24} />,
+    title: "IFM",
+    description: "Influencer & Fan Marketing to amplify your brand through trusted voices and loyal communities.",
+    image: "https://images.unsplash.com/photo-1581090700227-1e8e6c2be4ee?w=500&h=300&fit=crop&crop=center",
+    bgColor: "bg-yellow-50",
+    iconColor: "text-yellow-600",
+    badgeColor: "bg-yellow-100"
+  },
+  {
+    icon: <Star size={24} />,
+    title: "Celebrity Management",
+    description: "Talent coordination, brand deals, and event planning with renowned celebrities and public figures.",
+    image: "https://images.unsplash.com/photo-1602848595560-63ddaca2bc4b?w=500&h=300&fit=crop&crop=center",
+    bgColor: "bg-purple-50",
+    iconColor: "text-purple-600",
+    badgeColor: "bg-purple-100"
+  },
+
+  {
+    icon: <Camera size={24} />,
+    title: "Professional Shoots",
+    description: "High-quality photo and video shoots for branding, product showcases, campaigns, and more.",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=500&h=300&fit=crop&crop=center",
+    bgColor: "bg-blue-50",
+    iconColor: "text-blue-600",
+    badgeColor: "bg-blue-100"
+  },
+];
+
+
+  // Intersection Observer setup
+  useEffect(() => {
+    const observers = [];
+    
+    sectionRefs.current.forEach((ref, index) => {
+      if (ref) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                setVisibleSections(prev => [...new Set([...prev, index])]);
+                
+                if (index === 0) {
+                  headerTypewriter.setShouldStart(true);
+                  subtitleTypewriter.setShouldStart(true);
+                }
+              }, 100);
+            }
+          },
+          {
+            threshold: 0.3,
+            rootMargin: '50px'
+          }
+        );
+        
+        observer.observe(ref);
+        observers.push(observer);
+      }
+    });
+
+    return () => {
+      observers.forEach(observer => observer.disconnect());
+    };
+  }, []);
 
   return (
-    <section className="min-h-screen bg-white dark:bg-black py-20 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-neon-pink/10 to-electric-blue/10 rounded-full border border-neon-pink/20 mb-6"
-          >
-            <Zap className="w-4 h-4 text-neon-pink mr-2" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Our Expertise
-            </span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-cyber font-bold mb-6"
-          >
-            <span className="bg-gradient-to-r from-neon-pink to-electric-blue bg-clip-text text-transparent">
-              SERVICES
-            </span>
-          </motion.h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            From social media management to celebrity partnerships - we've got
-            everything to make your brand the talk of the town! 🔥
-          </p>
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative bg-white dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-neon-pink/50 dark:hover:border-neon-pink/50 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-                <img
-                  src={service.bgPattern}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="relative p-8">
-                {/* Icon */}
-                <div
-                  className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                >
-                  <div className="text-white">{service.icon}</div>
-                </div>
-
-                {/* Service Info */}
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center text-gray-700 dark:text-gray-300"
-                    >
-                      <div className="w-2 h-2 bg-electric-blue rounded-full mr-3"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <button className="flex items-center space-x-2 text-electric-blue hover:text-neon-pink transition-colors group/btn">
-                  <span className="font-semibold">Learn More</span>
-                  <ArrowRight
-                    size={16}
-                    className="group-hover/btn:translate-x-1 transition-transform"
-                  />
-                </button>
-              </div>
-
-              {/* Hover Overlay */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
-              ></div>
-            </motion.div>
+    <section className="bg-white dark:bg-black py-16 lg:py-24 transition-colors duration-300 relative overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="grid grid-cols-12 h-full">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={i} className="border-l border-gray-200 dark:border-white/10"></div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-neon-pink/5 to-electric-blue/5 rounded-3xl p-8 border border-gray-200 dark:border-gray-800">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Ready to Go Viral?
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-              Let's create a campaign that gets everyone talking about your
-              brand!
-            </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 flex items-center space-x-2 mx-auto"
-              >
-                <span>Get Your Custom Strategy</span>
-                <ArrowRight size={20} />
-              </motion.button>
-            </Link>
-          </div>
+        <div className="absolute inset-0 grid grid-rows-8">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="border-t border-gray-200 dark:border-white/10"></div>
+          ))}
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Header with Typewriter */}
+        <div 
+          ref={el => sectionRefs.current[0] = el}
+          className={`text-center mb-16 transform transition-all duration-700 ease-out ${
+            visibleSections.includes(0) ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+        >
+          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-pink/10 to-electric-blue/10 rounded-full border border-neon-pink/20 mb-8 backdrop-blur-sm">
+            <Zap className="w-5 h-5 text-neon-pink mr-3" />
+            <span className="text-sm font-modern font-medium text-gray-700 dark:text-gray-300">
+              Our Expertise
+            </span>
+          </div>
+
+          <h2 className="font-cyber text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-neon-pink to-electric-blue bg-clip-text text-transparent">
+              {headerTypewriter.displayText}
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-modern">
+            {subtitleTypewriter.displayText}
+          </p>
+
+          <div className={`mt-8 w-24 h-1 bg-gradient-to-r from-neon-pink to-electric-blue mx-auto transition-all duration-500 ${
+            subtitleTypewriter.isComplete ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+          }`}></div>
+        </div>
+
+        {/* Services Grid - Clean 4*4 Layout */}
+<div 
+  ref={el => sectionRefs.current[1] = el}
+  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-1 transform transition-all duration-700 ease-out ${
+    visibleSections.includes(1) ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+  }`}
+>
+  {services.map((service, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 50 }}
+      animate={visibleSections.includes(1) ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: index * 0.15 }}
+      className={`group relative ${service.bgColor} dark:bg-gray-900 rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-800 hover:border-black dark:hover:border-white transition-all duration-300 cursor-pointer w-full max-w-sm mx-auto`}
+    >
+      {/* Service Image */}
+      <div className="relative h-40 lg:h-52 overflow-hidden">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      </div>
+
+      {/* Service Content */}
+      <div className="p-6 lg:p-8">
+        <div className="space-y-3">
+          {/* Clickable Title */}
+          <Link 
+            to="/services" 
+            className="block group-hover:text-neon-pink transition-colors duration-300"
+          >
+            <h3 className="font-cyber text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-tight text-center">
+              {service.title}
+            </h3>
+          </Link>
+          
+          <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-relaxed font-modern text-center">
+            {service.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
+
+       
       </div>
     </section>
   );

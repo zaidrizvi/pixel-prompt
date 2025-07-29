@@ -96,7 +96,7 @@ const Hero = () => {
           >
             <motion.button
               onClick={handleGetStarted}
-              className="px-8 py-3 bg-cyber-purple hover:bg-neon-pink-light text-white font-semibold rounded-lg transition-colors duration-300"
+              className="px-8 py-3 bg-neon-pink-light hover:bg-neon-pink text-white font-semibold rounded-lg transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

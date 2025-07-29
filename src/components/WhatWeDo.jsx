@@ -12,22 +12,43 @@ const WhatWeDo = () => {
       highlight: "CREATIVITY & STRATEGY",
       description: "To build partnerships and craft content that scales your brand's digital footprint."
     },
-    {
-      id: 2,
-      label: "Who are we",
-      title: "THE",
-      highlight: "DYNAMIC FORCE",
-      subtitle: "DRIVING THE CONTENT ECONOMY",
-      description: "We're more than just a bridge between brands and creators."
-    },
-    {
-      id: 3,
-      label: "What Defines Us",
-      description: "We craft compelling narratives and build strong, impactful partnerships that set new standards in the Indian creator economy.",
-      hasButton: true,
-      buttonText: "Dive Into Our Culture"
-    }
   ];
+
+  // Faster typewriter effect hook without cursor
+  const useTypewriter = (text, speed = 25, startDelay = 0) => {
+    const [displayText, setDisplayText] = useState('');
+    const [isComplete, setIsComplete] = useState(false);
+    const [shouldStart, setShouldStart] = useState(false);
+
+    useEffect(() => {
+      if (!shouldStart) return;
+
+      const timer = setTimeout(() => {
+        let currentIndex = 0;
+        const interval = setInterval(() => {
+          if (currentIndex <= text.length) {
+            setDisplayText(text.slice(0, currentIndex));
+            currentIndex++;
+          } else {
+            setIsComplete(true);
+            clearInterval(interval);
+          }
+        }, speed);
+
+        return () => clearInterval(interval);
+      }, startDelay);
+
+      return () => clearTimeout(timer);
+    }, [text, speed, startDelay, shouldStart]);
+
+    return { displayText, isComplete, setShouldStart };
+  };
+
+  // Initialize typewriter effects with faster speeds and shorter delays
+  const labelTypewriter = useTypewriter(messages[0].label, 40, 10);
+  const titleTypewriter = useTypewriter(messages[0].title, 40, 150);
+  const highlightTypewriter = useTypewriter(messages[0].highlight, 5, 400);
+  const descriptionTypewriter = useTypewriter(messages[0].description, 5, 600);
 
   useEffect(() => {
     const observers = [];
@@ -37,9 +58,18 @@ const WhatWeDo = () => {
         const observer = new IntersectionObserver(
           ([entry]) => {
             if (entry.isIntersecting) {
+              const delay = index * 100; // Reduced delay
               setTimeout(() => {
                 setVisibleItems(prev => [...new Set([...prev, index])]);
-              }, index * 300); // Staggered reveal like messages
+                
+                // Start typewriter effects when component becomes visible
+                if (index === 0) {
+                  labelTypewriter.setShouldStart(true);
+                  titleTypewriter.setShouldStart(true);
+                  highlightTypewriter.setShouldStart(true);
+                  descriptionTypewriter.setShouldStart(true);
+                }
+              }, delay);
             }
           },
           {
@@ -59,23 +89,23 @@ const WhatWeDo = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-black relative overflow-hidden">
-      {/* Simple grid background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="grid grid-cols-8 h-full">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="border-l border-white/10"></div>
+    <section className="bg-white dark:bg-black relative overflow-hidden py-16 lg:py-24">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.01]">
+        <div className="grid grid-cols-12 h-full">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={i} className="border-l border-gray-200 dark:border-white/10"></div>
           ))}
         </div>
         <div className="absolute inset-0 grid grid-rows-8">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="border-t border-white/10"></div>
+            <div key={i} className="border-t border-gray-200 dark:border-white/10"></div>
           ))}
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="max-w-6xl mx-auto space-y-32">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
           {messages.map((message, index) => (
             <div
               key={message.id}
@@ -86,111 +116,54 @@ const WhatWeDo = () => {
                   : 'translate-y-8 opacity-0'
               }`}
             >
-              {/* Message Container */}
               <div className="space-y-6">
-                {/* Label */}
+                {/* Label with typewriter effect - no cursor */}
                 {message.label && (
-                  <div className="text-light-gray font-modern text-sm tracking-wider uppercase">
-                    {message.label}
+                  <div className="text-gray-600 dark:text-light-gray font-modern text-sm tracking-wider uppercase">
+                    {labelTypewriter.displayText}
                   </div>
                 )}
 
-                {/* Main Content */}
                 <div className="space-y-4">
-                  {/* Title Section */}
+                  {/* Title with typewriter effect - no cursor */}
                   {message.title && (
                     <div className="space-y-2">
-                      <h2 className="font-cyber text-5xl lg:text-7xl font-bold text-white leading-tight">
-                        {message.title}
+                      <h2 className="font-cyber text-5xl lg:text-7xl font-bold text-light-text dark:text-white leading-tight">
+                        {titleTypewriter.displayText}
                       </h2>
+                      
+                      {/* Highlight with typewriter effect - no cursor */}
                       {message.highlight && (
                         <h3 className="font-cyber text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-tight">
-                          {message.highlight}
+                          {highlightTypewriter.displayText}
                         </h3>
                       )}
-                      {message.subtitle && (
-                        <h4 className="font-cyber text-4xl lg:text-6xl font-bold text-white leading-tight">
-                          {message.subtitle}
-                        </h4>
-                      )}
                     </div>
                   )}
 
-                  {/* Description */}
+                  {/* Description with typewriter effect - no cursor */}
                   {message.description && (
-                    <p className="text-light-gray text-lg lg:text-xl font-modern leading-relaxed max-w-3xl">
-                      {message.description}
+                    <p className="text-gray-600 dark:text-light-gray text-lg lg:text-xl font-modern leading-relaxed max-w-3xl">
+                      {descriptionTypewriter.displayText}
                     </p>
-                  )}
-
-                  {/* Button */}
-                  {message.hasButton && (
-                    <div className="pt-6">
-                      <button className="px-6 py-3 bg-white text-black font-modern font-medium rounded-full hover:bg-light-gray transition-colors duration-300">
-                        {message.buttonText}
-                      </button>
-                    </div>
                   )}
                 </div>
 
-                {/* Message indicator line */}
-                <div className="w-16 h-0.5 bg-gradient-to-r from-electric-blue to-cyber-purple"></div>
+                {/* Gradient line appears after all text is complete */}
+                <div 
+                  className={`w-16 h-0.5 bg-gradient-to-r from-electric-blue to-cyber-purple transition-all duration-500 ${
+                    descriptionTypewriter.isComplete ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+                  }`}
+                  style={{ transformOrigin: 'left' }}
+                ></div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Third section with image layout */}
-        <div className="mt-32">
-          <div
-            ref={el => itemRefs.current[3] = el}
-            className={`transform transition-all duration-700 ease-out ${
-              visibleItems.includes(3)
-                ? 'translate-y-0 opacity-100'
-                : 'translate-y-8 opacity-0'
-            }`}
-          >
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Text Content */}
-              <div className="space-y-6">
-                <h2 className="font-cyber text-4xl lg:text-5xl font-bold text-cyber-purple leading-tight">
-                  What Defines Us
-                </h2>
-                <p className="text-white text-lg font-modern leading-relaxed">
-                  We craft compelling narratives and build strong, impactful partnerships that set new standards in the Indian creator economy.
-                </p>
-                <button className="px-6 py-3 bg-white text-black font-modern font-medium rounded-full hover:bg-light-gray transition-colors duration-300">
-                  Dive Into Our Culture
-                </button>
-              </div>
-
-              {/* Image/Visual Section */}
-              <div className="relative">
-                {/* Purple speech bubble */}
-                <div className="relative bg-cyber-purple rounded-3xl p-8 text-white">
-                  <p className="text-lg font-modern leading-relaxed">
-                    We are the mapmakers of the content realm, navigating the digital landscape since its wild west days.
-                  </p>
-                  
-                  {/* Speech bubble tail */}
-                  <div className="absolute bottom-0 left-8 transform translate-y-full">
-                    <div className="w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-cyber-purple"></div>
-                  </div>
-                </div>
-
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-white rounded-full"></div>
-                <div className="absolute -bottom-8 -left-8 w-12 h-12 bg-white rounded-full"></div>
-                
-                {/* Dotted line */}
-                <div className="absolute top-1/2 right-0 transform translate-x-16 -translate-y-1/2">
-                  <div className="w-24 border-t-2 border-dotted border-white"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+
+      {/* Background gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br pointer-events-none"></div>
     </section>
   );
 };
