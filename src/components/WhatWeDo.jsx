@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const WhatWeDo = () => {
   const [visibleItems, setVisibleItems] = useState([]);
+  const [currentStep, setCurrentStep] = useState(0);
   const itemRefs = useRef([]);
 
   const messages = [
@@ -14,41 +15,67 @@ const WhatWeDo = () => {
     },
   ];
 
-  // Faster typewriter effect hook without cursor
-  const useTypewriter = (text, speed = 25, startDelay = 0) => {
+  // Fast typewriter effect hook without cursor
+  const useTypewriter = (text, speed = 30, shouldStart = false) => {
     const [displayText, setDisplayText] = useState('');
     const [isComplete, setIsComplete] = useState(false);
-    const [shouldStart, setShouldStart] = useState(false);
 
     useEffect(() => {
-      if (!shouldStart) return;
+      if (!shouldStart) {
+        setDisplayText('');
+        setIsComplete(false);
+        return;
+      }
 
-      const timer = setTimeout(() => {
-        let currentIndex = 0;
-        const interval = setInterval(() => {
-          if (currentIndex <= text.length) {
-            setDisplayText(text.slice(0, currentIndex));
-            currentIndex++;
-          } else {
-            setIsComplete(true);
-            clearInterval(interval);
-          }
-        }, speed);
+      let currentIndex = 0;
+      
+      const interval = setInterval(() => {
+        if (currentIndex <= text.length) {
+          setDisplayText(text.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          setIsComplete(true);
+          clearInterval(interval);
+        }
+      }, speed);
 
-        return () => clearInterval(interval);
-      }, startDelay);
+      return () => clearInterval(interval);
+    }, [text, speed, shouldStart]);
 
-      return () => clearTimeout(timer);
-    }, [text, speed, startDelay, shouldStart]);
-
-    return { displayText, isComplete, setShouldStart };
+    return { displayText, isComplete };
   };
 
-  // Initialize typewriter effects with faster speeds and shorter delays
-  const labelTypewriter = useTypewriter(messages[0].label, 40, 10);
-  const titleTypewriter = useTypewriter(messages[0].title, 40, 150);
-  const highlightTypewriter = useTypewriter(messages[0].highlight, 5, 400);
-  const descriptionTypewriter = useTypewriter(messages[0].description, 5, 600);
+  // Initialize typewriter effects with faster speeds
+  const labelTypewriter = useTypewriter(messages[0].label, 25, currentStep >= 1);
+  const titleTypewriter = useTypewriter(messages[0].title, 30, currentStep >= 2);
+  const highlightTypewriter = useTypewriter(messages[0].highlight, 25, currentStep >= 3);
+  const descriptionTypewriter = useTypewriter(messages[0].description, 15, currentStep >= 4);
+
+  // Progress to next step when current typewriter completes with shorter delays
+  useEffect(() => {
+    if (currentStep === 0) return;
+
+    const stepTimers = [];
+
+    if (currentStep === 1 && labelTypewriter.isComplete) {
+      stepTimers.push(setTimeout(() => setCurrentStep(2), 100));
+    }
+    
+    if (currentStep === 2 && titleTypewriter.isComplete) {
+      stepTimers.push(setTimeout(() => setCurrentStep(3), 100));
+    }
+    
+    if (currentStep === 3 && highlightTypewriter.isComplete) {
+      stepTimers.push(setTimeout(() => setCurrentStep(4), 100));
+    }
+
+    return () => stepTimers.forEach(timer => clearTimeout(timer));
+  }, [
+    currentStep, 
+    labelTypewriter.isComplete, 
+    titleTypewriter.isComplete, 
+    highlightTypewriter.isComplete
+  ]);
 
   useEffect(() => {
     const observers = [];
@@ -58,18 +85,12 @@ const WhatWeDo = () => {
         const observer = new IntersectionObserver(
           ([entry]) => {
             if (entry.isIntersecting) {
-              const delay = index * 100; // Reduced delay
-              setTimeout(() => {
-                setVisibleItems(prev => [...new Set([...prev, index])]);
-                
-                // Start typewriter effects when component becomes visible
-                if (index === 0) {
-                  labelTypewriter.setShouldStart(true);
-                  titleTypewriter.setShouldStart(true);
-                  highlightTypewriter.setShouldStart(true);
-                  descriptionTypewriter.setShouldStart(true);
-                }
-              }, delay);
+              setVisibleItems(prev => [...new Set([...prev, index])]);
+              
+              // Start the sequential typewriter effects immediately
+              if (index === 0) {
+                setCurrentStep(1);
+              }
             }
           },
           {

@@ -179,7 +179,7 @@ const Services = () => {
         {/* Services Grid - Clean 4*4 Layout */}
 <div 
   ref={el => sectionRefs.current[1] = el}
-  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-1 transform transition-all duration-700 ease-out ${
+  className={`grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-1 transform transition-all duration-700 ease-out ${
     visibleSections.includes(1) ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
   }`}
 >
