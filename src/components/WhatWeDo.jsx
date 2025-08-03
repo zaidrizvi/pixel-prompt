@@ -88,7 +88,8 @@ const WhatWeDo = () => {
   }, []);
 
   return (
-    <section className="bg-white dark:bg-black relative overflow-hidden py-16 lg:py-24">
+    <section className="relative h-[500px] bg-white dark:bg-black overflow-hidden py-16 lg:py-24">
+
       {/* Grid background */}
       <div className="absolute inset-0 opacity-[0.01]">
         <div className="grid grid-cols-12 h-full">
