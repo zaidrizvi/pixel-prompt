@@ -1,6 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import oppo1 from '../assets/oppo1.png';
+import gshock from '../assets/gshok.png';
+import ssm1 from '../assets/ssm1.jpg';
+import garnier from '../assets/Gemini.png';
+import vintage from '../assets/vintage.jpg';
 
 
 const WorkComponent = () => {
@@ -16,36 +21,36 @@ const WorkComponent = () => {
     id: 1,
     title: 'OPPO',
     tag: 'Influencer Marketing',
-    img: '/src/assets/oppo1.png',
+    img: oppo1,
     link: '/work/oppo'
   },
   {
     id: 2,
     title: 'G SHOCK',
     tag: 'Influencer Marketing',
-    img: '/src/assets/gshock.png',
+    img: gshock,
     link: '/work/gshock'
   },
   {
     id: 3,
     title: 'Donavi Café',
     tag: 'Social Media Marketing',
-    img: '/src/assets/ssm1.jpg',
+    img: ssm1,
    link: 'https://www.instagram.com/deardonnaqutub'
   },
   {
     id: 4,
     title: 'Garnier',
     tag: 'Influencer Marketing',
-    img: '/src/assets/Gemini.png',
+    img: garnier,
     link: '/work/garnier'
   },
   
   {
     id: 5,
-    title: 'Gulzaar Clothing',
+    title: 'The Vintage Parandi',
     tag: 'Social Media Marketing',
-    img: '/src/assets/vintage.jpg',
+    img: vintage,
      link: 'https://www.instagram.com/thevintageparandi'
   }
 ];
