@@ -59,11 +59,7 @@ const AboutSection = () => {
   const heroTypewriter = useTypewriter("DIVE INTO OUR CULTURE", 50, 0);
   const subtitleTypewriter = useTypewriter("Where creativity meets passion, and every pixel tells a story", 30, 400);
   const storyTitleTypewriter = useTypewriter("We Don't Just Create Content, We Create Iconic Brands", 25, 0);
- const storyDescTypewriter = useTypewriter(
-  `Pixel Prompt is a Social Media Marketing and Design Agency, currently working with 80 brands across several avenues including food and beverage, lifestyle, beauty, skincare, nutrition, and fashion. We specialize in Social Media Marketing, Design, Content Creation and Influencer Marketing.`,
-  20,
-  200
-);
+ 
 
 
   
@@ -137,7 +133,7 @@ const AboutSection = () => {
                 }
                 if (index === 1) {
                   storyTitleTypewriter.setShouldStart(true);
-                  storyDescTypewriter.setShouldStart(true);
+                 
                 }
               }, 100);
             }
@@ -265,11 +261,11 @@ const AboutSection = () => {
             </h3>
 
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed font-modern">
-              {storyDescTypewriter.displayText}
+              Pixel Prompt is a Social Media Marketing and Design Agency, currently working with 80 brands across several avenues including food and beverage, lifestyle, beauty, skincare, nutrition, and fashion. We specialize in Social Media Marketing, Design, Content Creation and Influencer Marketing.
             </p>
 
-            <div className={`transition-all duration-500 ${
-              storyDescTypewriter.isComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            <div className={`transition-all duration-500
+              'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
               <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed font-modern">
                 We've worked with bold names like{" "}
@@ -307,17 +303,10 @@ const AboutSection = () => {
                   to="/contact"
                   className="px-8 py-4 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-modern font-semibold rounded-full hover:scale-105 hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
                 >
-                  <span>Start Your Viral Journey</span>
+                  <span>Start Your Journey</span>
                   <ArrowRight size={18} />
                 </Link>
 
-                <Link
-                  to="/portfolio"
-                  className="px-8 py-4 border-2 border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white transition-all duration-300 rounded-full font-modern font-semibold flex items-center justify-center space-x-2"
-                >
-                  <Play size={18} />
-                  <span>Watch Our Story</span>
-                </Link>
               </div>
             </div>
           </div>
