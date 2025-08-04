@@ -24,18 +24,19 @@ const milestones = [
     year: "2025",
     event: "OPPO × Pixel Prompt",
     description:
-      "Amplified OPPO’s event presence through digital promotion & coverage.",
+      "Amplified OPPO's event presence through digital promotion & coverage.",
   },
 ];
 
 const Timeline = () => (
   <section className="bg-white dark:bg-black py-16 lg:py-24">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header - Always visible immediately */}
+      
       <div className="text-center mb-16">
         <motion.h3 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}  // Changed from animate to whileInView
+          viewport={{ once: true, amount: 0.3 }}  // Added viewport trigger
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-cyber font-bold text-gray-900 dark:text-white mb-6"
         >
@@ -43,7 +44,8 @@ const Timeline = () => (
         </motion.h3>
         <motion.p 
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}  // Changed from animate to whileInView
+          viewport={{ once: true, amount: 0.3 }}  // Added viewport trigger
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-gray-600 dark:text-gray-300 text-lg font-modern"
         >
@@ -52,10 +54,11 @@ const Timeline = () => (
       </div>
 
       <div className="relative">
-        {/* Timeline line - Always visible */}
+        {/* Timeline line - Now triggers on scroll */}
         <motion.div 
           initial={{ height: 0 }}
-          animate={{ height: "100%" }}
+          whileInView={{ height: "100%" }}  // Changed from animate to whileInView
+          viewport={{ once: true, amount: 0.1 }}  // Added viewport trigger
           transition={{ duration: 1, ease: "easeOut" }}
           className="absolute left-1/2 -translate-x-1/2 w-1
                      bg-gradient-to-b from-neon-pink to-electric-blue rounded-full" 
@@ -64,20 +67,18 @@ const Timeline = () => (
         {milestones.map((m, i) => (
           <motion.div
             key={i}
-            /* Much more aggressive trigger - 20% instead of 50% */
             initial={{ opacity: 0, x: i % 2 ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ 
               once: true, 
-              amount: 0.2,  // Earlier trigger
-              margin: "0px 0px -30% 0px"  // Start animation before fully visible
+              amount: 0.2,
+              margin: "0px 0px -30% 0px"
             }}
             transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
             className={`flex items-center mb-12 ${
               i % 2 ? "flex-row-reverse" : "flex-row"
             }`}
           >
-            {/* Card content stays same */}
             <div className={`w-1/2 ${i % 2 ? "pl-8 text-left" : "pr-8 text-right"}`}>
               <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg
                               border border-gray-200 dark:border-gray-800

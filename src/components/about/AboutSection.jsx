@@ -62,7 +62,7 @@ const AboutSection = () => {
  const storyDescTypewriter = useTypewriter(
   `Pixel Prompt is a Social Media Marketing and Design Agency, currently working with 80 brands across several avenues including food and beverage, lifestyle, beauty, skincare, nutrition, and fashion. We specialize in Social Media Marketing, Design, Content Creation and Influencer Marketing.`,
   20,
-  300
+  200
 );
 
 

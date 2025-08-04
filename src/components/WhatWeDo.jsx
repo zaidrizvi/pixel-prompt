@@ -91,7 +91,7 @@ const WhatWeDo = () => {
                   : "translate-y-8 opacity-0"
               }`}
             >
-              <h2 className="font-cyber text-5xl lg:text-7xl font-bold text-light-text dark:text-white leading-tight">
+              <h2 className="font-cyber text-4xl lg:text-7xl font-bold text-light-text dark:text-white leading-tight">
                 {messages.title}
               </h2>
             </div>
@@ -105,7 +105,7 @@ const WhatWeDo = () => {
                   : "translate-y-8 opacity-0"
               }`}
             >
-              <h3 className="font-cyber text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-tight">
+              <h3 className="font-cyber text-4xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-tight">
                 {messages.highlight}
               </h3>
             </div>
