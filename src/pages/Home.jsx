@@ -1,10 +1,17 @@
 import React from 'react';
 import Hero from '../components/home/Hero.jsx';
-import Services from '../components/home/Services.jsx';
-import Portfolio from '../components/home/Portfolio.jsx';
+import Services from '../components/home/Services2.jsx';
+
 import VideoShowcase from '../components/VideoSection.jsx';
-import AboutSection from '../components/about/AboutSection.jsx';
+
 import WhatWeDo from '../components/WhatWeDo.jsx';
+
+import Timeline from '../components/Timeline.jsx';
+import Stats from '../components/Stats.jsx';
+import Stats2 from '../components/Stats2.jsx';
+import BrandSection from '../components/BrandSection.jsx';
+import WorkComponent from '../components/WorkComponent.jsx';
+
 
 
 const Home = () => {
@@ -13,8 +20,13 @@ const Home = () => {
       <Hero />
       <VideoShowcase/>
      <WhatWeDo/>
-      <Services />
-      <Portfolio />
+     <WorkComponent/>
+     <Timeline/>
+     <Stats/>
+      <Services/>
+      <BrandSection/>
+      <Stats2/>
+      
     </div>
   );
 };

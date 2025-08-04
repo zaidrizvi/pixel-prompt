@@ -18,13 +18,13 @@ const Services = () => {
       case "influencer":
         navigate("/services/influencer");
         break;
-   case "content":
+      case "content":
         navigate("/services/content");
         break;
         case "celebrity":
         navigate("/services/celebrity");
         break;
-        case "shoots":
+        case "professional":
         navigate("/services/professional");
         break;
       default:
@@ -70,55 +70,39 @@ const Services = () => {
   );
 
   const services = [
-  {
-    number: "01",
-    title: "Brand Conceptualisation",
-    description:
-      "Creative strategies to define and shape your brand's unique identity in the market.",
-    buttonText: "Know More",
-    type: "brand",
-  },
-  {
-    number: "02",
-    title: "Social Media Marketing",
-    description:
-      "Comprehensive SMM to grow your audience, boost engagement, and enhance brand visibility.",
-    buttonText: "Know More",
-    type: "social-media",
-  },
-  {
-    number: "03",
-    title: "Celebrity Marketing",
-    description:
-      "Leverage star power to elevate your brand with powerful celebrity endorsements.",
-    buttonText: "Know More",
-    type: "celebrity",
-  },
-  {
-    number: "04",
-    title: "Content Creation",
-    description:
-      "Engaging visuals, video shoots, and storytelling crafted to capture your audience's attention.",
-    buttonText: "Know More",
-    type: "content",
-  },
-  {
-    number: "05",
-    title: "Influencer Marketing",
-    description:
-      "Drive authentic engagement through collaborations with top social media influencers.",
-    buttonText: "Know More",
-    type: "influencer",
-  },
-  {
-    number: "06",
-    title: "Professional Shoots",
-    description:
-      "High-quality photo and video shoots that showcase your brand in the most compelling light.",
-    buttonText: "Know More",
-    type: "shoots",
-  }
-];
+    {
+      number: "01",
+      title: "Brand Conceptualisation",
+      description:
+        "Creative strategies to define and shape your brand's unique identity in the market.",
+      buttonText: "Know More",
+      type: "brand",
+    },
+    {
+      number: "02",
+      title: "Social Media Marketing",
+      description:
+        "Comprehensive SMM to grow your audience, boost engagement, and enhance brand visibility.",
+      buttonText: "Know More",
+      type: "social-media",
+    },
+    {
+      number: "03",
+      title: "Influencer Marketing",
+      description:
+        "Strategic influencer collaborations to build trust, reach niche audiences, and drive authentic engagement.",
+      buttonText: "Know More",
+      type: "influencer",
+    },
+    {
+      number: "04",
+      title: "Content Creation",
+      description:
+        "Engaging visuals, video shoots, and storytelling crafted to capture your audience's attention.",
+      buttonText: "Know More",
+      type: "content",
+    },
+  ];
 
   useEffect(() => {
     const observers = [];
@@ -248,6 +232,18 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View All Services Button */}
+<div className="mt-12 text-center">
+  <motion.button
+    whileTap={{ scale: 0.95 }}
+    onClick={() => navigate("/services")}
+    className="bg-white text-black px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-200 transition"
+  >
+    View All Services
+  </motion.button>
+</div>
+
       </div>
     </section>
   );

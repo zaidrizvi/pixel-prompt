@@ -211,9 +211,9 @@ Sent from Pixel Prompt Contact Form
                   <Phone size={16} />
                   <span>+91 70788 90112</span>
                 </a>
-                <a href="mailto:contact@pixelprompt.net" className="flex items-center space-x-2 text-electric-blue hover:text-neon-pink">
+                <a href="mailto:pixelpromptofficial@gmail.com" className="flex items-center space-x-2 text-electric-blue hover:text-neon-pink">
                   <Mail size={16} />
-                  <span>contact@pixelprompt.net</span>
+                  <span>pixelpromptofficial@gmail.com</span>
                 </a>
               </div>
             </div>

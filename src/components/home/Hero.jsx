@@ -57,7 +57,9 @@ const Hero = () => {
           {/* Main Heading - Finnet Style */}
           <div className="space-y-6">
             <motion.h1 
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight"
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight  tracking-[-1px]
+
+"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -66,7 +68,8 @@ const Hero = () => {
               <span className="text-neon-pink">
                 {currentText}
                 <motion.span
-                  className="inline-block w-1 h-16 sm:h-20 md:h-24 bg-orange-500 ml-2"
+  className="inline-block w-1 h-16 sm:h-20 md:h-24 bg-orange-500 ml-2"
+
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />

@@ -13,19 +13,19 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
 
- useEffect(() => {
+useEffect(() => {
   const savedTheme = localStorage.getItem('theme');
 
-  if (savedTheme === 'dark') {
-    setDarkMode(true);
-    document.documentElement.classList.add('dark');
-  } else if (savedTheme === 'light') {
+  if (savedTheme === 'light') {
     setDarkMode(false);
     document.documentElement.classList.remove('dark');
   } else {
-    // Default to light mode
-    setDarkMode(false);
-    document.documentElement.classList.remove('dark');
+    // Default to dark mode
+    setDarkMode(true);
+    document.documentElement.classList.add('dark');
+    if (!savedTheme) {
+      localStorage.setItem('theme', 'dark');
+    }
   }
 }, []);
 

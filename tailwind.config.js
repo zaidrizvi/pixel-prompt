@@ -61,8 +61,16 @@ export default {
       
       animation: {
         'pulse-neon': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'glow': 'glow 1.5s ease-in-out infinite alternate'
-      }
+        'glow': 'glow 1.5s ease-in-out infinite alternate',
+        'scroll-brands': 'scroll-brands 25s linear infinite',
+      },
+      keyframes: {
+        'scroll-brands': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+     
     },
   },
   plugins: [],

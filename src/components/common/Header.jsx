@@ -25,7 +25,7 @@ const Header = () => {
     { name: 'Home', path: '/', icon: <Home size={16} /> },
     { name: 'About', path: '/about', icon: <User size={16} /> },
     { name: 'Services', path: '/services', icon: <Briefcase size={16} /> },
-    { name: 'Portfolio', path: '/portfolio', icon: <FolderOpen size={16} /> },
+    
     { name: 'Contact', path: '/contact', icon: <Mail size={16} /> }
   ];
 

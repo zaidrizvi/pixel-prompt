@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import pixel from "../../assets/pixel.png";
+import Stats from "../Stats";
 
 const AboutSection = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -58,34 +59,14 @@ const AboutSection = () => {
   const heroTypewriter = useTypewriter("DIVE INTO OUR CULTURE", 50, 0);
   const subtitleTypewriter = useTypewriter("Where creativity meets passion, and every pixel tells a story", 30, 400);
   const storyTitleTypewriter = useTypewriter("We Don't Just Create Content, We Create Iconic Brands", 25, 0);
-  const storyDescTypewriter = useTypewriter("At Pixel Prompt, we're experts in making brands go viral. Whether it's managing celebrity campaigns, influencer marketing, UGC production, or social media strategy — we do it all, and we do it loud!", 20, 300);
+ const storyDescTypewriter = useTypewriter(
+  `Pixel Prompt is a Social Media Marketing and Design Agency, currently working with 80 brands across several avenues including food and beverage, lifestyle, beauty, skincare, nutrition, and fashion. We specialize in Social Media Marketing, Design, Content Creation and Influencer Marketing.`,
+  20,
+  300
+);
 
-  const stats = [
-    {
-      icon: <Users size={32} />,
-      number: "20+",
-      label: "Happy Clients",
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: <Award size={32} />,
-      number: "30+",
-      label: "Viral Campaigns",
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: <Instagram size={32} />,
-      number: "1M+",
-      label: "Content Reach",
-      gradient: "from-pink-500 to-rose-500",
-    },
-    {
-      icon: <Zap size={32} />,
-      number: "98%",
-      label: "Client Retention",
-      gradient: "from-green-500 to-emerald-500",
-    },
-  ];
+
+  
 
   const cultureValues = [
     {
@@ -359,33 +340,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div 
-          ref={el => sectionRefs.current[3] = el}
-          className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 transform transition-all duration-700 ease-out ${
-            visibleSections.includes(3) ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={visibleSections.includes(3) ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
-              className="text-center bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
-            >
-              <div className={`w-16 h-16 bg-gradient-to-r ${stat.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <div className="text-white">{stat.icon}</div>
-              </div>
-              <div className="text-3xl font-cyber font-bold text-gray-900 dark:text-white mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm font-modern">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <Stats/>
 
         {/* Timeline Section */}
         <div 

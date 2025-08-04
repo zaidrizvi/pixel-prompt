@@ -49,30 +49,7 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
       {/* Newsletter Section */}
-      <div className="bg-gradient-to-r from-neon-pink/5 to-electric-blue/5 border-b border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Ready to Go <span className="text-neon-pink">Viral?</span>
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join 10,000+ brands getting our exclusive viral marketing tips and strategies. No spam, just pure value! 🚀
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full focus:ring-2 focus:ring-neon-pink focus:border-transparent outline-none text-gray-900 dark:text-white"
-              />
-              <button className="px-6 py-3 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                <Send size={18} />
-                <span>Subscribe</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -99,10 +76,10 @@ const Footer = () => {
             {/* Social Media Links */}
             <div className="flex space-x-4 mb-8">
               {[
-                { icon: <Instagram size={20} />, url: "https://instagram.com/pixelprompt", color: "hover:bg-pink-500", name: "Instagram" },
-                { icon: <Facebook size={20} />, url: "https://facebook.com/pixelprompt", color: "hover:bg-blue-500", name: "Facebook" },
-                { icon: <Twitter size={20} />, url: "https://twitter.com/pixelprompt", color: "hover:bg-blue-400", name: "Twitter" },
-                { icon: <Linkedin size={20} />, url: "https://linkedin.com/company/pixelprompt", color: "hover:bg-blue-600", name: "LinkedIn" }
+                { icon: <Instagram size={20} />, url: "https://www.instagram.com/pixelpromptofficial/", color: "hover:bg-pink-500", name: "Instagram" },
+                { icon: <Facebook size={20} />, url: "https://www.instagram.com/pixelpromptofficial/", color: "hover:bg-blue-500", name: "Facebook" },
+                { icon: <Twitter size={20} />, url: "https://www.instagram.com/pixelpromptofficial/", color: "hover:bg-blue-400", name: "Twitter" },
+                { icon: <Linkedin size={20} />, url: "https://linkedin.com/company/pixelpromptofficial", color: "hover:bg-blue-600", name: "LinkedIn" }
               ].map((social, index) => (
                 <a
                   key={index}
