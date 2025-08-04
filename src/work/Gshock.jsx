@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, ExternalLink, TrendingUp, Users, Eye, Calendar, Award, Zap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import gshock1 from '../assets/gshock1.png';
+import gshock2 from '../assets/gshock2.png';
+const GShock = () => {const navigate = useNavigate();
 
-const GShock = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('darkMode');
@@ -25,24 +28,24 @@ const GShock = () => {
   const reelsData = [
     {
       id: 1,
-      title: "Festival Activation",
-      subtitle: "G-Shock Experience Zone",
+     
+      
       url: "https://www.instagram.com/reel/C1ZZYbVxZSw/",
-      thumbnail: "https://images.unsplash.com/photo-1592878849126-210a91efbcb7?w=300&h=400&fit=crop"
+      thumbnail: gshock1
     },
     {
       id: 2,
-      title: "Creator Collaboration",  
-      subtitle: "Behind The Scenes",
+        
+     
       url: "https://www.instagram.com/reel/C1Wzyb_ouvB/",
-      thumbnail: "/src/assets/image2.png"
+      thumbnail: gshock2
     }
   ];
 
   const openReel = (url) => window.open(url, '_blank');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-500 overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-[0.02] dark:opacity-[0.05]">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px] animate-pulse"></div>
@@ -79,7 +82,7 @@ const GShock = () => {
           >
             {/* G-SHOCK Brand Logo */}
             <div className="relative">
-              <h1 className="text-8xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-green via-electric-blue to-cyber-purple bg-clip-text text-transparent drop-shadow-2xl">
+              <h1 className="text-6xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-green via-electric-blue to-cyber-purple bg-clip-text text-transparent drop-shadow-2xl">
                 G-SHOCK
               </h1>
               <div className="absolute -inset-4 bg-gradient-to-r from-cyber-green/20 via-electric-blue/20 to-cyber-purple/20 blur-xl -z-10"></div>
@@ -127,7 +130,7 @@ const GShock = () => {
                     className="group cursor-pointer"
                   >
                     {/* Video Card */}
-                    <div className="relative bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl dark:hover:shadow-neon transition-all duration-500">
+                    <div className="relative bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-3xl overflow-hidden  transition-all duration-500">
                       
                       {/* Video Thumbnail */}
                       <div className="aspect-[4/5] overflow-hidden relative">
@@ -153,14 +156,7 @@ const GShock = () => {
                       </div>
 
                       {/* Card Content */}
-                      <div className="p-6 space-y-3">
-                        <h4 className="text-lg font-bold text-light-text dark:text-dark-text">
-                          {reel.title}
-                        </h4>
-                        <p className="text-light-gray dark:text-gray-400 text-sm">
-                          {reel.subtitle}
-                        </p>
-                      </div>
+                     
                     </div>
                   </motion.div>
                 ))}
@@ -227,9 +223,13 @@ const GShock = () => {
               <p className="text-lg text-light-gray dark:text-gray-400 mb-8 max-w-2xl mx-auto">
                 Create powerful experiences that showcase your brand's unique spirit and drive real engagement
               </p>
-              <button className="px-8 py-4 bg-gradient-to-r from-cyber-green to-electric-blue hover:from-cyber-green hover:to-electric-blue-dark text-white rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-neon">
-                Start Your Campaign
-              </button>
+              <button
+  onClick={() => navigate('/contact')}
+  className="px-8 py-4 bg-gradient-to-r from-cyber-green to-electric-blue hover:from-cyber-green hover:to-electric-blue-dark text-white rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-neon"
+>
+  Launch With Us
+</button>
+
             </div>
           </motion.section>
         </div>

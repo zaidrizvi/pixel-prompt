@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, ExternalLink, TrendingUp, Users, Eye, Calendar, Award, Zap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import garnier1 from '../assets/garnier1.png';
+import garnier2 from '../assets/garnier2.png';
+const Garnier = () => {const navigate = useNavigate();
 
-const Garnier = () => {
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('darkMode');
@@ -25,24 +29,22 @@ const Garnier = () => {
   const reelsData = [
     {
       id: 1,
-      title: "Super Cooling Campaign",
-      subtitle: "Beauty Creator Showcase",
+     
       url: "https://www.instagram.com/reel/DKEoiVdxyDg/",
-      thumbnail: "https://images.unsplash.com/photo-1619566636858-d7c61c9c3710?w=300&h=400&fit=crop"
+      thumbnail: garnier1
     },
     {
       id: 2,
-      title: "Lifestyle Integration",  
-      subtitle: "Sunscreen Benefits",
+     
       url: "https://www.instagram.com/reel/DJ4mmsHT-W9/",
-      thumbnail: "https://images.unsplash.com/photo-1588776814546-ec07b206d82b?w=300&h=400&fit=crop"
+      thumbnail: garnier2
     }
   ];
 
   const openReel = (url) => window.open(url, '_blank');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-500 overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-[0.02] dark:opacity-[0.05]">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px] animate-pulse"></div>
@@ -79,7 +81,7 @@ const Garnier = () => {
           >
             {/* GARNIER Brand Logo */}
             <div className="relative">
-              <h1 className="text-8xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-green via-electric-blue to-cyber-purple bg-clip-text text-transparent drop-shadow-2xl">
+              <h1 className="text-6xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-green via-electric-blue to-cyber-purple bg-clip-text text-transparent drop-shadow-2xl">
                 GARNIER
               </h1>
               <div className="absolute -inset-4 bg-gradient-to-r from-cyber-green/20 via-electric-blue/20 to-cyber-purple/20 blur-xl -z-10"></div>
@@ -127,7 +129,7 @@ const Garnier = () => {
                     className="group cursor-pointer"
                   >
                     {/* Video Card */}
-                    <div className="relative bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl dark:hover:shadow-neon transition-all duration-500">
+                    <div className="relative bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-3xl overflow-hidden transition-all duration-500">
                       
                       {/* Video Thumbnail */}
                       <div className="aspect-[4/5] overflow-hidden relative">
@@ -153,14 +155,7 @@ const Garnier = () => {
                       </div>
 
                       {/* Card Content */}
-                      <div className="p-6 space-y-3">
-                        <h4 className="text-lg font-bold text-light-text dark:text-dark-text">
-                          {reel.title}
-                        </h4>
-                        <p className="text-light-gray dark:text-gray-400 text-sm">
-                          {reel.subtitle}
-                        </p>
-                      </div>
+                     
                     </div>
                   </motion.div>
                 ))}
@@ -208,25 +203,7 @@ const Garnier = () => {
               </div>
 
               {/* Campaign Stats */}
-              <div className="bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-3xl p-8">
-                <h3 className="text-xl font-bold text-cyber-green mb-6 flex items-center gap-3">
-                  <Award className="w-5 h-5" />
-                  Campaign Metrics
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: 'Reach', value: '850K+', color: 'text-electric-blue' },
-                    { label: 'Engagement', value: '95%', color: 'text-cyber-green' },
-                    { label: 'Creators', value: '12+', color: 'text-neon-pink' },
-                    { label: 'Days', value: '5', color: 'text-cyber-purple' },
-                  ].map((stat) => (
-                    <div key={stat.label} className="text-center">
-                      <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
-                      <div className="text-xs text-light-gray dark:text-gray-400">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              
             </motion.aside>
           </div>
 
@@ -244,9 +221,13 @@ const Garnier = () => {
               <p className="text-lg text-light-gray dark:text-gray-400 mb-8 max-w-2xl mx-auto">
                 Let's make your campaign shine in the spotlight with powerful creator collaborations
               </p>
-              <button className="px-8 py-4 bg-gradient-to-r from-cyber-green to-electric-blue hover:from-cyber-green hover:to-electric-blue-dark text-white rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-neon">
-                Launch With Us
-              </button>
+             <button
+  onClick={() => navigate('/contact')}
+  className="px-8 py-4 bg-gradient-to-r from-cyber-green to-electric-blue hover:from-cyber-green hover:to-electric-blue-dark text-white rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-neon"
+>
+  Launch With Us
+</button>
+
             </div>
           </motion.section>
         </div>
