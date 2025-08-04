@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import oppo1 from '../assets/oppo1.png';
-import gshock from '../assets/gshok.png';
+import gshock from '../assets/gshock.png';
 import ssm1 from '../assets/ssm1.jpg';
 import garnier from '../assets/Gemini.png';
 import vintage from '../assets/vintage.jpg';
