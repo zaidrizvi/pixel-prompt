@@ -12,7 +12,12 @@ const WorkComponent = () => {
   const [visibleArrows, setVisibleArrows] = useState(false);
   const [index, setIndex] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, threshold: 0.3 });
+  const inView = useInView(ref, { 
+  once: true, 
+  threshold: 0.5,                    // Higher threshold
+  margin: "0px 0px -150px 0px"       // Delay trigger
+});
+
   const navigate = useNavigate();
 
 

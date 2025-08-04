@@ -41,7 +41,7 @@ const VideoShowcase = () => {
         >
           <video
             ref={videoRef}
-            className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+            className="w-full h-[440px] md:h-[500px] lg:h-[600px] object-cover"
             muted
             loop
             playsInline

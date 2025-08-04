@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const Services = () => {
-  const [visibleSections, setVisibleSections] = useState([]);
-  const sectionRefs = useRef([]);
   const navigate = useNavigate();
 
   const handleKnowMore = (serviceType) => {
@@ -21,53 +19,16 @@ const Services = () => {
       case "content":
         navigate("/services/content");
         break;
-        case "celebrity":
+      case "celebrity":
         navigate("/services/celebrity");
         break;
-        case "professional":
+      case "professional":
         navigate("/services/professional");
         break;
       default:
         break;
     }
   };
-
-  // Typewriter effect hook
-  const useTypewriter = (text, speed = 30, startDelay = 0) => {
-    const [displayText, setDisplayText] = useState("");
-    const [isComplete, setIsComplete] = useState(false);
-    const [shouldStart, setShouldStart] = useState(false);
-
-    useEffect(() => {
-      if (!shouldStart) return;
-
-      const timer = setTimeout(() => {
-        let currentIndex = 0;
-        const interval = setInterval(() => {
-          if (currentIndex <= text.length) {
-            setDisplayText(text.slice(0, currentIndex));
-            currentIndex++;
-          } else {
-            setIsComplete(true);
-            clearInterval(interval);
-          }
-        }, speed);
-
-        return () => clearInterval(interval);
-      }, startDelay);
-
-      return () => clearTimeout(timer);
-    }, [text, speed, startDelay, shouldStart]);
-
-    return { displayText, isComplete, setShouldStart };
-  };
-
-  const headerTypewriter = useTypewriter("Bring to the Table", 50, 0);
-  const subtitleTypewriter = useTypewriter(
-    "Our Services: From Idea to Impact",
-    30,
-    300
-  );
 
   const services = [
     {
@@ -104,39 +65,6 @@ const Services = () => {
     },
   ];
 
-  useEffect(() => {
-    const observers = [];
-
-    sectionRefs.current.forEach((ref, index) => {
-      if (ref) {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              setTimeout(() => {
-                setVisibleSections((prev) => [...new Set([...prev, index])]);
-                if (index === 0) {
-                  headerTypewriter.setShouldStart(true);
-                  subtitleTypewriter.setShouldStart(true);
-                }
-              }, 100);
-            }
-          },
-          {
-            threshold: 0.1,
-            rootMargin: "150px",
-          }
-        );
-
-        observer.observe(ref);
-        observers.push(observer);
-      }
-    });
-
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
-  }, []);
-
   return (
     <section className="bg-black py-16 lg:py-24 relative overflow-hidden min-h-screen">
       {/* Subtle grid background */}
@@ -154,37 +82,42 @@ const Services = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Header */}
-        <div
-          ref={(el) => (sectionRefs.current[0] = el)}
-          className={`text-center mb-16 lg:mb-24 transform transition-all duration-700 ease-out ${
-            visibleSections.includes(0)
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0"
-          }`}
+        {/* Header - Now with scroll trigger */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 lg:mb-24"
         >
-          <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl mb-4 lg:mb-6 leading-tight text-white">
-            {headerTypewriter.displayText}
-          </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            {subtitleTypewriter.displayText}
-          </p>
-        </div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-bold text-4xl md:text-6xl lg:text-7xl mb-4 lg:mb-6 leading-tight text-white"
+          >
+            Bring to the Table
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed"
+          >
+            Our Services: From Idea to Impact
+          </motion.p>
+        </motion.div>
 
-        {/* Services Grid */}
-        <div
-          ref={(el) => (sectionRefs.current[1] = el)}
-          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto transform transition-all duration-700 ease-out ${
-            visibleSections.includes(1)
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0"
-          }`}
-        >
+        {/* Services Grid - Only card-level animation */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
-              animate={visibleSections.includes(1) ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{
                 delay: index * 0.15,
                 duration: 0.6,
@@ -202,12 +135,12 @@ const Services = () => {
                 ></div>
               </div>
 
-              {/* Number */}
+              {/* Number - No animation */}
               <div className="absolute top-4 lg:top-6 right-4 lg:right-6 text-5xl lg:text-6xl font-bold text-gray-500/50 z-10">
                 {service.number}
               </div>
 
-              {/* Card content */}
+              {/* Card content - No animation */}
               <div className="relative p-6 lg:p-8 h-full flex flex-col justify-between z-20">
                 <div className="space-y-4 lg:space-y-6 mt-12 lg:mt-16">
                   <div className="space-y-3 lg:space-y-4">
@@ -220,30 +153,33 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Button */}
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
+                {/* Button - No animation */}
+                <button
                   onClick={() => handleKnowMore(service.type)}
-                  className="mt-6 lg:mt-8 self-start bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 lg:px-8 py-3 lg:py-3.5 rounded-full font-semibold text-sm lg:text-base"
+                  className="mt-6 lg:mt-8 self-start bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 lg:px-8 py-3 lg:py-3.5 rounded-full font-semibold text-sm lg:text-base hover:from-purple-700 hover:to-purple-800 transition-colors duration-200 hover:scale-105 transition-transform"
                 >
                   {service.buttonText}
-                </motion.button>
+                </button>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* View All Services Button */}
-<div className="mt-12 text-center">
-  <motion.button
-    whileTap={{ scale: 0.95 }}
-    onClick={() => navigate("/services")}
-    className="bg-white text-black px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-200 transition"
-  >
-    View All Services
-  </motion.button>
-</div>
-
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 text-center"
+        >
+          <button
+            onClick={() => navigate("/services")}
+            className="bg-white text-black px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-200 transition-colors duration-200 hover:scale-105 transition-transform"
+          >
+            View All Services
+          </button>
+        </motion.div>
       </div>
     </section>
   );
