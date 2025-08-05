@@ -175,7 +175,7 @@ const to = (url) => {
                   src={item.img}
                   alt={item.title}
                   className="w-full h-full object-cover"
-                 
+                 loading="lazy"
                   transition={{ duration: 0.4 }}
                 />
 
