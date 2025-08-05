@@ -29,32 +29,30 @@ const VideoShowcase = () => {
 
   return (
     <section className="py-16 bg-white dark:bg-black">
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Video Container - NO PLAY BUTTON */}
-        <motion.div
-          className="relative rounded-lg overflow-hidden shadow-lg"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <video
-            ref={videoRef}
-            className="w-full h-[440px] md:h-[500px] lg:h-[600px] object-cover"
-            muted
-            loop
-            playsInline
-            autoPlay
-          >
-            <source src={demoVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          
-          {/* REMOVED: Play Button Overlay completely removed */}
-        </motion.div>
-      </div>
-    </section>
+  {/* Section padding, intro text or heading can go here */}
+  
+  {/* Full-width video container */}
+  <motion.div
+    className="relative w-full rounded-none overflow-hidden shadow-lg"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
+    <video
+      ref={videoRef}
+      className="w-full min-h-[700px] sm:min-h-[400px] md:min-h-[500px] object-cover"
+      muted
+      loop
+      playsInline
+      autoPlay
+    >
+      <source src={demoVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </motion.div>
+</section>
+
   );
 };
 
