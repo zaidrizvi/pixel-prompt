@@ -87,7 +87,7 @@ export default function Stats() {
         const observer = new IntersectionObserver(
           ([entry]) => {
             if (entry.isIntersecting) {
-              const delay = index * 300;
+              const delay = index * 200;
               setTimeout(() => {
                 setVisibleItems((prev) => [...new Set([...prev, index])]);
               }, delay);
@@ -140,7 +140,7 @@ export default function Stats() {
                 colorClass={stat.colorClass}
                 sizeClass="text-7xl sm:text-8xl md:text-9xl"
                 trigger={visibleItems.includes(index)}
-                
+                duration={1000}
               />
             )}
           </div>

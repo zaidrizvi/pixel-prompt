@@ -137,6 +137,7 @@ export default function Stats2() {
                 sizeClass="text-7xl sm:text-8xl md:text-9xl"
                 trigger={visibleItems.includes(index)}
                 delay={200}
+                duration={1200}
               />
             )}
           </div>
