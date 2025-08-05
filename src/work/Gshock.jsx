@@ -46,17 +46,7 @@ const GShock = () => {const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 opacity-[0.02] dark:opacity-[0.05]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px] animate-pulse"></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-10 w-4 h-4 bg-cyber-green/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-20 w-6 h-6 bg-electric-blue/20 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-3 h-3 bg-neon-pink/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+      
 
       {/* Header */}
       <header className="relative z-10 px-6 py-8">
@@ -82,11 +72,11 @@ const GShock = () => {const navigate = useNavigate();
           >
             {/* G-SHOCK Brand Logo */}
             <div className="relative">
-              <h1 className="text-6xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-green via-electric-blue to-cyber-purple bg-clip-text text-transparent drop-shadow-2xl">
-                G-SHOCK
-              </h1>
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyber-green/20 via-electric-blue/20 to-cyber-purple/20 blur-xl -z-10"></div>
-            </div>
+  <h1 className="text-6xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-purple via-electric-blue to-neon-pink bg-clip-text text-transparent drop-shadow-2xl">
+    G-SHOCK
+  </h1>
+</div>
+
 
             <div className="space-y-4">
               <h2 className="text-3xl lg:text-4xl font-bold text-light-text dark:text-dark-text">

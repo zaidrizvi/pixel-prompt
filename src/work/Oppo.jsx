@@ -49,16 +49,7 @@ const Oppo = () => {const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
       {/* Animated Background */}
-      <div className="fixed inset-0 opacity-[0.02] dark:opacity-[0.05]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px] animate-pulse"></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-10 w-4 h-4 bg-neon-pink/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-20 w-6 h-6 bg-electric-blue/20 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-3 h-3 bg-cyber-green/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+      
 
       {/* Header */}
       <header className="relative z-10 px-6 py-8">
@@ -66,9 +57,9 @@ const Oppo = () => {const navigate = useNavigate();
           <div className="flex items-center justify-between mb-12">
             <button
               onClick={() => window.history.back()}
-              className="flex items-center gap-3 text-light-text dark:text-dark-text hover:text-neon-pink transition-all duration-300 group"
+              className="flex items-center gap-3 text-light-text dark:text-dark-text k transition-all duration-300 group"
             >
-              <div className="p-2 rounded-full bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border group-hover:border-neon-pink transition-colors">
+              <div className="p-2 rounded-full bg-light-card dark:bg-dark-card border border-gray-200 dark:border-dark-border transition-colors">
                 <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
               </div>
               <span className="font-semibold">Back to Portfolio</span>
@@ -84,11 +75,11 @@ const Oppo = () => {const navigate = useNavigate();
           >
             {/* OPPO Brand Logo */}
             <div className="relative">
-              <h1 className="text-6xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-purple via-electric-blue to-neon-pink bg-clip-text text-transparent drop-shadow-2xl">
-                OPPO
-              </h1>
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyber-purple/20 via-electric-blue/20 to-neon-pink/20 blur-xl -z-10"></div>
-            </div>
+  <h1 className="text-6xl lg:text-9xl font-bold bg-gradient-to-r from-cyber-purple via-electric-blue to-neon-pink bg-clip-text text-transparent drop-shadow-2xl">
+    OPPO
+  </h1>
+</div>
+
 
             <div className="space-y-4">
               <h2 className="text-3xl lg:text-4xl font-bold text-light-text dark:text-dark-text">
