@@ -1,43 +1,157 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const BrandSectionImproved = () => {
- const brands = [
-  'G-SHOCK',
-  'OPPO',
-  'GEETANJALI SALON',
-  'Dear Donna',
-  'GARNIER',
-  'HANDA',
-  'CINK',
-  'Burgrill',
-  'SAVVY',
-  'NOMAD PIZZA',
-  'TRESemmé',
-  'SNITCH',
-  'CHEESECAKE & CO.',
-  'KHAN CHACHA',
-  'DARYAGANJ',
-  'Yes madam',
-  'McDonald’s',
-  'KAMAL BHAI SAREE SANGAM',
-  'ASTA BERRY',
-  'Indian Sneaker Festival',
-  'Honey & Dough',
-  'URBAN MONKEY',
-  'TACO BELL',
-  'The Vintage परांदी',
-  'Musaafir',
-  'Domino’s',
-  'Broadway',
-  'Bikanervala',
-];
-
+  // Updated brands array with type and content
+  const brands = [
+    {
+      type: "image",
+      src: "/logos/gshocklogo.png",
+      alt: "G-SHOCK",
+      name: "G-SHOCK",
+    },
+    { type: "text", name: "OPPO" },
+    {
+      type: "image",
+      src: "/logos/geetanjali-logo.png",
+      alt: "Geetanjali Salon",
+      name: "GEETANJALI SALON",
+    },
+    {
+      type: "image",
+      src: "/logos/dear-donna.png",
+      alt: "Dear Donna",
+      name: "Dear Donna",
+    },
+    {
+      type: "image",
+      src: "/logos/garnier-logo.png",
+      alt: "Garnier",
+      name: "GARNIER",
+    },
+    { type: "image", src: "/logos/handa.png", alt: "HANDA", name: "HANDA" },
+    { type: "image", src: "/logos/cink.png", alt: "CINK", name: "CINK" },
+    {
+      type: "image",
+      src: "/logos/burgrill-logo.png",
+      alt: "Burgrill",
+      name: "Burgrill",
+    },
+    { type: "image", src: "/logos/savvy.png", alt: "SAVVY", name: "SAVVY" },
+    {
+      type: "image",
+      src: "/logos/nomad-pizza-logo.png",
+      alt: "Nomad Pizza",
+      name: "NOMAD PIZZA",
+    },
+    {
+      type: "image",
+      src: "/logos/tresemme-logo.png",
+      alt: "TRESemmé",
+      name: "TRESemmé",
+    },
+    { type: "image", src: "/logos/snitch.png", alt: "SNITCH", name: "SNITCH" },
+    {
+      type: "image",
+      src: "/logos/cheesecake-co.png",
+      alt: "CHEESECAKE & CO.",
+      name: "CHEESECAKE & CO.",
+    },
+    {
+      type: "image",
+      src: "/logos/khan-chacha.png",
+      alt: "KHAN CHACHA",
+      name: "KHAN CHACHA",
+    },
+    {
+      type: "image",
+      src: "/logos/daryaganj.png",
+      alt: "DARYAGANJ",
+      name: "DARYAGANJ",
+    },
+    {
+      type: "image",
+      src: "/logos/yes-madam.png",
+      alt: "Yes madam",
+      name: "Yes madam",
+    },
+    {
+      type: "image",
+      src: "/logos/mcdonalds-logo.png",
+      alt: "McDonald's",
+      name: "McDonald's",
+    },
+    {
+      type: "image",
+      src: "/logos/kamalbhai.png",
+      alt: "KAMAL BHAI SAREE SANGAM",
+      name: "KAMAL BHAI SAREE SANGAM",
+    },
+    {
+      type: "text",
+      name: "ASTA BERRY",
+    },
+    {
+      type: "image",
+      src: "/logos/indian-sneaker-festival.png",
+      alt: "Indian Sneaker Festival",
+      name: "Indian Sneaker Festival",
+    },
+    {
+      type: "image",
+      src: "/logos/honey-dough.png",
+      alt: "Honey & Dough",
+      name: "Honey & Dough",
+    },
+    {
+      type: "image",
+      src: "/logos/urbanmonkey.png",
+      alt: "urbanmonkey",
+      name: "urbanmonkey",
+    },
+    {
+      type: "image",
+      src: "/logos/tacobell-logo.png",
+      alt: "Taco Bell",
+      name: "TACO BELL",
+    },
+    {
+      type: "image",
+      src: "/logos/the-vintage-parandi.png",
+      alt: "The Vintage परांदी",
+      name: "The Vintage परांदी",
+    },
+    {
+      type: "image",
+      src: "/logos/musaafir.png",
+      alt: "Musaafir",
+      name: "Musaafir",
+    },
+    {
+      type: "image",
+      src: "/logos/dominos-logo.png",
+      alt: "Domino's",
+      name: "Domino's",
+    },
+    {
+      type: "image",
+      src: "/logos/brodway-logo.png",
+      alt: "brodway",
+      name: "brodway",
+    },
+    {
+      type: "image",
+      src: "/logos/bikanervala.png",
+      alt: "Bikanervala",
+      name: "Bikanervala",
+    },
+  ];
 
   const marqueeRef = useRef(null);
   const [scrollWidth, setScrollWidth] = useState(0);
+  const [imageErrors, setImageErrors] = useState({});
 
-  const SPEED = 100; // pixels per second (you can tweak this)
+  const SPEED = 200; // pixels per second
 
   useEffect(() => {
     if (marqueeRef.current) {
@@ -46,6 +160,43 @@ const BrandSectionImproved = () => {
   }, []);
 
   const duration = scrollWidth / SPEED;
+
+  // Handle image load errors
+  const handleImageError = (index) => {
+    setImageErrors((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
+  };
+
+  // Render brand item based on type
+  const renderBrandItem = (brand, index) => {
+    const baseClasses =
+      "flex items-center justify-center whitespace-nowrap min-w-fit";
+
+    if (brand.type === "image" && !imageErrors[index]) {
+      return (
+        <div key={index} className={baseClasses}>
+          <img
+            src={brand.src}
+            alt={brand.alt}
+            className="h-20 md:h-28 lg:h-28 xl:h-32 max-w-[300px] md:max-w-[400px] lg:max-w-[450px] object-contain scale-110 opacity-100 transition-all duration-300 px-8 "
+            onError={() => handleImageError(index)}
+            loading="lazy"
+          />
+        </div>
+      );
+    } else {
+      // Fallback to text for image errors or text-only brands
+      return (
+        <div key={index} className={baseClasses}>
+          <span className="text-white text-2xl md:text-4xl  font-semibold hover:text-blue-400 transition-colors duration-300 px-8">
+            {brand.name}
+          </span>
+        </div>
+      );
+    }
+  };
 
   return (
     <section className="bg-black py-16 overflow-hidden">
@@ -63,28 +214,21 @@ const BrandSectionImproved = () => {
         {/* Marquee container */}
         <div className="overflow-hidden">
           <motion.div
-            className="flex gap-12 md:gap-16 lg:gap-20"
+            className="flex items-center gap-12 md:gap-20 lg:gap-24"
             ref={marqueeRef}
             animate={{ x: [0, -scrollWidth] }}
             transition={{
               repeat: Infinity,
-              repeatType: 'loop',
+              repeatType: "loop",
               duration: duration || 10,
-              ease: 'linear',
+              ease: "linear",
             }}
-            style={{ willChange: 'transform' }}
+            style={{ willChange: "transform" }}
           >
-            {/* Repeat brands multiple times */}
-            {[...brands, ...brands, ...brands].map((brand, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center whitespace-nowrap"
-              >
-                <span className="text-white text-2xl md:text-3xl lg:text-4xl font-semibold hover:text-blue-400 transition-colors duration-300">
-                  {brand}
-                </span>
-              </div>
-            ))}
+            {/* Repeat brands multiple times for seamless loop */}
+            {[...brands, ...brands, ...brands].map((brand, index) =>
+              renderBrandItem(brand, index)
+            )}
           </motion.div>
         </div>
       </div>
