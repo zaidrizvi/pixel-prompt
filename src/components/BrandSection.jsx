@@ -180,7 +180,7 @@ const BrandSectionImproved = () => {
           <img
             src={brand.src}
             alt={brand.alt}
-            className="h-20 md:h-28 lg:h-28 xl:h-32 max-w-[300px] md:max-w-[400px] lg:max-w-[450px] object-contain scale-110 opacity-100 transition-all duration-300 px-8 "
+            className="h-22 md:h-28 lg:h-28 xl:h-32 max-w-[300px] md:max-w-[400px] lg:max-w-[450px] object-contain scale-110 opacity-100 transition-all duration-300 px-8 "
             onError={() => handleImageError(index)}
             loading="lazy"
           />
