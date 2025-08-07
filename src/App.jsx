@@ -43,7 +43,7 @@ function App() {
 
         await Promise.all([
           ...imagePromises,
-          new Promise(resolve => setTimeout(resolve, 1700))
+          new Promise(resolve => setTimeout(resolve, 1800))
         ]);
 
         setIsLoading(false);

@@ -68,7 +68,7 @@ const LoadingScreen = () => {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="bg-gradient-to-r from-gray-900 via-neon-pink via-electric-blue to-gray-900 dark:from-white dark:via-neon-pink dark:via-electric-blue dark:to-white bg-clip-text text-transparent font-cyber text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wider bg-[length:200%_auto]"
+            className="bg-gradient-to-r from-gray-900 via-neon-pink via-electric-blue to-gray-900 dark:from-white dark:via-neon-pink dark:via-electric-blue dark:to-white bg-clip-text text-transparent font-cyber text-2xl  font-bold tracking-wider bg-[length:200%_auto]"
           >
             PIXEL PROMPT
           </motion.h1>
