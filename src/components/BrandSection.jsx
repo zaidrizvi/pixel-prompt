@@ -154,9 +154,22 @@ const BrandSectionImproved = () => {
   const SPEED = 200; // pixels per second
 
   useEffect(() => {
-    if (marqueeRef.current) {
-      setScrollWidth(marqueeRef.current.scrollWidth);
-    }
+    const updateScrollWidth = () => {
+      if (marqueeRef.current) {
+        setScrollWidth(marqueeRef.current.scrollWidth);
+      }
+    };
+
+    updateScrollWidth(); // initial check
+    window.addEventListener("resize", updateScrollWidth);
+
+    // Ensure recalculation after fonts, images, etc.
+    const timeout = setTimeout(updateScrollWidth, 1000);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("resize", updateScrollWidth);
+    };
   }, []);
 
   const duration = scrollWidth / SPEED;
