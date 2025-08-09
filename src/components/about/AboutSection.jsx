@@ -92,7 +92,7 @@ const AboutSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
           onViewportEnter={() => heroTypewriter.startTyping()}
           className="text-center mb-20"
@@ -104,14 +104,9 @@ const AboutSection = () => {
             </span>
           </div>
 
-          <h1 className="font-cyber text-5xl md:text-8xl font-bold mb-8 leading-tight relative">
-            <span className="opacity-0 select-none pointer-events-none">
-              DIVE INTO OUR CULTURE
-            </span>
-            <span className="absolute top-0 left-0 bg-gradient-to-r from-neon-pink via-electric-blue to-cyber-purple bg-clip-text text-transparent">
-              {heroTypewriter.displayText}
-            </span>
-          </h1>
+         <h1 className="font-cyber text-3xl md:text-7xl font-bold mb-8 leading-tight text-center bg-gradient-to-r from-neon-pink via-electric-blue to-cyber-purple bg-clip-text text-transparent">
+  {heroTypewriter.displayText}
+</h1>
 
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-modern">
             Where creativity meets passion, and every pixel tells a story
@@ -122,7 +117,7 @@ const AboutSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-20"
         >
@@ -143,7 +138,7 @@ const AboutSection = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.1 }}
                 className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
               >
@@ -167,7 +162,7 @@ const AboutSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20"
         >
@@ -203,7 +198,7 @@ const AboutSection = () => {
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
                   className="flex items-center space-x-3"
                 >
