@@ -36,7 +36,7 @@ const Timeline = () => (
         <motion.h3 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}  // Changed from animate to whileInView
-          viewport={{ once: true, amount: 0.3 }}  // Added viewport trigger
+          viewport={{ once: true, amount: 0.2 }}  // Added viewport trigger
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-cyber font-bold text-gray-900 dark:text-white mb-6"
         >
@@ -45,7 +45,7 @@ const Timeline = () => (
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}  // Changed from animate to whileInView
-          viewport={{ once: true, amount: 0.3 }}  // Added viewport trigger
+          viewport={{ once: true, amount: 0.2 }}  // Added viewport trigger
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-gray-600 dark:text-gray-300 text-lg font-modern"
         >
@@ -71,7 +71,7 @@ const Timeline = () => (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ 
               once: true, 
-              amount: 0.2,
+              amount: 0.1,
               margin: "0px 0px -30% 0px"
             }}
             transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
@@ -98,7 +98,7 @@ const Timeline = () => (
             <motion.div 
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ delay: i * 0.1 + 0.3 }}
               className="w-6 h-6 bg-gradient-to-r from-neon-pink to-electric-blue
                          rounded-full border-4 border-white dark:border-black shadow-lg" 
