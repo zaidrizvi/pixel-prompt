@@ -51,7 +51,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="space-y-8"
         >
           {/* Main Heading - Finnet Style */}
@@ -84,7 +84,7 @@ const Hero = () => {
               className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto font-mono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.4 }}
             >
               The new standard for creator-led marketing
             </motion.p>
@@ -95,7 +95,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
+            transition={{ delay: 0.6 }}
           >
             <motion.button
               onClick={handleGetStarted}
