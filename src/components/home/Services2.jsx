@@ -90,7 +90,7 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-24"
         >
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -99,7 +99,7 @@ const Services = () => {
           >
             Bring to the Table
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -166,11 +166,11 @@ const Services = () => {
         </div>
 
         {/* View All Services Button */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }} // smaller amount triggers earlier
+          transition={{ duration: 0.6, delay: 0 }} // remove extra delay
           className="mt-12 text-center"
         >
           <button
