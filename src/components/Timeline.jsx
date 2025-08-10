@@ -8,12 +8,7 @@ const milestones = [
     description:
       "Started as a creative agency focused on digital-first brand promotions.",
   },
-  {
-    year: "2025",
-    event: "First Celebrity Campaign",
-    description:
-      "Collaborated with influencers and celebs for product-focused campaigns.",
-  },
+  
   {
     year: "2025",
     event: "G-SHOCK × Pixel Prompt",
@@ -26,6 +21,11 @@ const milestones = [
     description:
       "Amplified OPPO's event presence through digital promotion & coverage.",
   },
+  {
+    year: "2025",
+    event: "Garnier x Pixel Prompt",
+    description:" We partnered with Garnier for a high-impact Instagram campaign"
+  }
 ];
 
 const Timeline = () => (
@@ -88,21 +88,22 @@ const Timeline = () => (
                 i % 2 ? "pl-8 text-left" : "pr-8 text-right"
               }`}
             >
-              <div
-                className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-md
-                           border border-gray-200 dark:border-gray-800
-                           hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="text-neon-pink font-cyber font-bold text-lg mb-2">
-                  {m.year}
-                </div>
-                <h4 className="text-gray-900 dark:text-white font-cyber font-bold text-xl mb-2">
-                  {m.event}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-400 font-modern">
-                  {m.description}
-                </p>
-              </div>
+             <div
+  className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-md
+             border border-gray-200 dark:border-gray-800
+             hover:shadow-lg transition-shadow duration-300"
+>
+  <div className="text-neon-pink font-cyber font-bold text-base mb-1">
+    {m.year}
+  </div>
+  <h4 className="text-gray-900 dark:text-white font-cyber font-bold text-lg mb-1">
+    {m.event}
+  </h4>
+  <p className="text-gray-600 dark:text-gray-400 font-modern text-sm leading-relaxed">
+    {m.description}
+  </p>
+</div>
+
             </div>
 
             {/* Dot */}
