@@ -94,8 +94,8 @@ export default function Stats() {
             }
           },
           {
-            threshold: 0.3,
-            rootMargin: "0px 0px -50px 0px"
+            threshold: 0.2,
+            rootMargin: "0px 0px -30px 0px"
           }
         );
         observer.observe(ref);
