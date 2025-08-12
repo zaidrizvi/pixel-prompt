@@ -40,7 +40,7 @@ const WhatWeDo = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0 }}
             >
               <div className="text-gray-600 text-xl dark:text-light-gray font-modern text-sm tracking-wider uppercase">
@@ -52,8 +52,8 @@ const WhatWeDo = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
             >
               <h2 className="font-cyber text-4xl lg:text-7xl font-bold text-light-text dark:text-white leading-tight">
                 {messages.title}
@@ -64,8 +64,8 @@ const WhatWeDo = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
               <h3 className="font-cyber text-4xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-tight">
                 {messages.highlight}
@@ -76,8 +76,8 @@ const WhatWeDo = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
             >
               <p className="text-gray-600 dark:text-light-gray text-lg lg:text-xl font-modern leading-relaxed max-w-3xl">
                 {messages.description}
@@ -88,7 +88,7 @@ const WhatWeDo = () => {
            <motion.div
   initial={{ opacity: 0, y: 30, scaleX: 0 }}
   whileInView={{ opacity: 1, y: 0, scaleX: 1 }}
-  viewport={{ once: true, amount: 0.3 }}
+  viewport={{ once: true, amount: 0.2 }}
   transition={{ duration: 0.6, delay: 0.3 }} // pehle 0.8 tha
   className="pb-10"
   style={{ transformOrigin: "left" }}
@@ -101,7 +101,7 @@ const WhatWeDo = () => {
           <motion.div
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
+  viewport={{ once: true, amount: 0.2 }}
   transition={{ duration: 0.6, delay: 0.4 }} // pehle 1.0 tha
 >
   <Link to="/about">

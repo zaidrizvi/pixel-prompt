@@ -36,7 +36,7 @@ const VideoShowcase = () => {
   return (
     <section
       ref={containerRef}
-      className="bg-black flex justify-center py-16 " // responsive padding
+      className=" bg-light-card dark:bg-black flex justify-center py-6 " // responsive padding
     >
       <motion.div
         style={{
