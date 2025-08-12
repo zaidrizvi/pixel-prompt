@@ -29,7 +29,7 @@ const VideoShowcase = () => {
     scrollYProgress,
     [0, 0.5, 1],
     isMobile
-      ? ["700px", "700px", "700px"] // your original mobile height
+      ? ["550px", "550px", "550px"] // your original mobile height
       : ["700px", "700px", "700px"] // grows in middle for desktop
   );
 
