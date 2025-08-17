@@ -88,8 +88,8 @@ const WhatWeDo = () => {
            <motion.div
   initial={{ opacity: 0, y: 30, scaleX: 0 }}
   whileInView={{ opacity: 1, y: 0, scaleX: 1 }}
-  viewport={{ once: true, amount: 0.2 }}
-  transition={{ duration: 0.6, delay: 0.3 }} // pehle 0.8 tha
+  viewport={{ once: true, amount: 0.1 }}
+  transition={{ duration: 0.6, delay: 0.2 }} // pehle 0.8 tha
   className="pb-10"
   style={{ transformOrigin: "left" }}
 >
@@ -101,8 +101,8 @@ const WhatWeDo = () => {
           <motion.div
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.2 }}
-  transition={{ duration: 0.6, delay: 0.4 }} // pehle 1.0 tha
+  viewport={{ once: true, amount: 0.1 }}
+  transition={{ duration: 0.6, delay: 0.2 }} // pehle 1.0 tha
 >
   <Link to="/about">
     <button className="px-6 py-4 text-sm font-semibold rounded-full border border-transparent bg-gradient-to-r from-electric-blue to-cyber-purple text-white shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
