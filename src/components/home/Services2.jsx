@@ -66,23 +66,23 @@ const Services = () => {
   ];
 
   return (
-    <section className="bg-black py-16 lg:py-24 relative overflow-hidden min-h-screen">
+    <section className="bg-white dark:bg-black py-16 lg:py-24 relative overflow-hidden min-h-screen">
       {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
         <div className="grid grid-cols-12 h-full">
           {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="border-l border-white/10"></div>
+            <div key={i} className="border-l border-black/10 dark:border-white/10"></div>
           ))}
         </div>
         <div className="absolute inset-0 grid grid-rows-8">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="border-t border-white/10"></div>
+            <div key={i} className="border-t border-black/10 dark:border-white/10"></div>
           ))}
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Header - Now with scroll trigger */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-bold text-4xl md:text-6xl lg:text-7xl mb-4 lg:mb-6 leading-tight text-white"
+            className="font-bold text-4xl md:text-6xl lg:text-7xl mb-4 lg:mb-6 leading-tight text-black dark:text-white"
           >
             Bring to the Table
           </motion.h2>
@@ -104,13 +104,13 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
           >
             Our Services: From Idea to Impact
           </motion.p>
         </motion.div>
 
-        {/* Services Grid - Only card-level animation */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <motion.div
@@ -123,37 +123,37 @@ const Services = () => {
                 duration: 0.6,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-700 cursor-pointer min-h-[400px] lg:min-h-[450px]"
+              className="group relative bg-gray-100 dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer min-h-[400px] lg:min-h-[450px]"
             >
               {/* Curved background */}
               <div className="absolute top-0 right-0 w-32 h-32 lg:w-40 lg:h-40">
                 <div
-                  className="absolute inset-0 bg-gray-700/40 transform translate-x-8 -translate-y-8"
+                  className="absolute inset-0 bg-gray-300/40 dark:bg-gray-700/40 transform translate-x-8 -translate-y-8"
                   style={{
                     borderRadius: "0 0 0 100%",
                   }}
                 ></div>
               </div>
 
-              {/* Number - No animation */}
-              <div className="absolute top-4 lg:top-6 right-4 lg:right-6 text-5xl lg:text-6xl font-bold text-gray-500/50 z-10">
+              {/* Number */}
+              <div className="absolute top-4 lg:top-6 right-4 lg:right-6 text-5xl lg:text-6xl font-bold text-gray-300 dark:text-gray-500/50 z-10">
                 {service.number}
               </div>
 
-              {/* Card content - No animation */}
+              {/* Card content */}
               <div className="relative p-6 lg:p-8 h-full flex flex-col justify-between z-20">
                 <div className="space-y-4 lg:space-y-6 mt-12 lg:mt-16">
                   <div className="space-y-3 lg:space-y-4">
-                    <h3 className="text-xl lg:text-2xl font-bold text-purple-400 leading-tight">
+                    <h3 className="text-xl lg:text-2xl font-bold text-purple-600 dark:text-purple-400 leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-gray-300 text-sm lg:text-base leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-base leading-relaxed">
                       {service.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Button - No animation */}
+                {/* Button */}
                 <button
                   onClick={() => handleKnowMore(service.type)}
                   className="mt-6 lg:mt-8 self-start bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 lg:px-8 py-3 lg:py-3.5 rounded-full font-semibold text-sm lg:text-base hover:from-purple-700 hover:to-purple-800 transition-colors duration-200 hover:scale-105 transition-transform"
@@ -169,13 +169,13 @@ const Services = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }} // smaller amount triggers earlier
-          transition={{ duration: 0.6, delay: 0 }} // remove extra delay
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, delay: 0 }}
           className="mt-12 text-center"
         >
           <button
             onClick={() => navigate("/services")}
-            className="bg-white text-black px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-200 transition-colors duration-200 hover:scale-105 transition-transform"
+            className="bg-black text-white dark:bg-white dark:text-black px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200 hover:scale-105 transition-transform"
           >
             View All Services
           </button>
