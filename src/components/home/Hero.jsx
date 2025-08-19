@@ -9,7 +9,7 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
 
-  const words = ["IMPACT" , "VISIONS" , "CULTURE",  "DEMAND"
+  const words = ["IMPACT," , "VISIONS," , "CULTURE,",  "DEMAND,"
     ];
   const fullText = words[wordIndex];
 
@@ -40,7 +40,10 @@ const Hero = () => {
   }, [currentText, currentIndex, isDeleting, fullText, wordIndex, words.length]);
 
   return (
-    <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-[70vh] md:min-h-screen bg-white dark:bg-black 
+  flex items-center justify-center relative overflow-hidden
+  pt-12 sm:pt-12 md:pt-0">
+
 
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 opacity-20">
