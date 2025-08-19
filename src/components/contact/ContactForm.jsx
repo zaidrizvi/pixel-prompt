@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, MessageCircle, Mail, Phone, Instagram, Users, Star, Camera } from 'lucide-react';
+import { Send, MessageCircle, Mail, Phone, Instagram, Users, Star, Camera, Sparkles, Heart } from 'lucide-react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -82,144 +82,201 @@ Sent from Pixel Prompt Contact Form
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black py-20 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-200 dark:border-neon-pink/20 shadow-2xl transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-pink-900/10 py-16 transition-all duration-500">
+      {/* Background decoration */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-pink-300/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
 
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-cyber font-bold mb-4">
-              <span className="bg-gradient-to-r from-neon-pink to-electric-blue bg-clip-text text-transparent">
-                LET'S CREATE MAGIC
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Ready to make your brand go viral? Let's talk! ✨
-            </p>
-          </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          
+          
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Turn Buzz
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Into Impact
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Transform your brand with cutting-edge digital marketing strategies that actually work.
+          </p>
+        </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Main Form Container */}
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/50 dark:border-gray-700/50 shadow-2xl shadow-purple-500/10 transition-all duration-300">
+          
+          <form onSubmit={handleSubmit} className="space-y-8">
+            
+            {/* Personal Info Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name */}
+              <div className="space-y-2">
+                <label className="block text-gray-800 dark:text-white font-semibold text-sm uppercase tracking-wide">
+                  Your Name *
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-4 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
+                  required
+                />
+                {errors.name && <p className="text-red-500 text-sm flex items-center gap-1"><Heart size={14}/>{errors.name}</p>}
+              </div>
 
-            {/* Name */}
-            <div>
-              <label className="block text-gray-800 dark:text-white font-semibold mb-2">*Your Name</label>
-              <input
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Enter your full name"
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border rounded-lg outline-none text-gray-900 dark:text-white"
-                required
-              />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              {/* Phone */}
+              <div className="space-y-2">
+                <label className="block text-gray-800 dark:text-white font-semibold text-sm uppercase tracking-wide">
+                  Phone Number *
+                </label>
+                <div className="relative">
+                  <Phone className="absolute left-4 top-4 text-gray-400" size={20} />
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="10 digit number"
+                    className="w-full px-4 py-4 pl-12 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
+                    required
+                  />
+                </div>
+                {errors.phone && <p className="text-red-500 text-sm flex items-center gap-1"><Heart size={14}/>{errors.phone}</p>}
+              </div>
             </div>
 
             {/* Email */}
-            <div>
-              <label className="block text-gray-800 dark:text-white font-semibold mb-2">*Email Address</label>
+            <div className="space-y-2">
+              <label className="block text-gray-800 dark:text-white font-semibold text-sm uppercase tracking-wide">
+                Email Address *
+              </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Mail className="absolute left-4 top-4 text-gray-400" size={20} />
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 pl-12 bg-gray-50 dark:bg-gray-800 border rounded-lg outline-none text-gray-900 dark:text-white"
+                  className="w-full px-4 py-4 pl-12 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
                   required
                 />
               </div>
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-sm flex items-center gap-1"><Heart size={14}/>{errors.email}</p>}
             </div>
 
-            {/* Phone */}
-            <div>
-              <label className="block text-gray-800 dark:text-white font-semibold mb-2">*Phone Number</label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-3 text-gray-400" size={20} />
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="10 digit number"
-                  className="w-full px-4 py-3 pl-12 bg-gray-50 dark:bg-gray-800 border rounded-lg outline-none text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="block text-gray-800 dark:text-white font-semibold mb-2">Tell Us About Your Project</label>
-              <div className="relative">
-                <MessageCircle className="absolute left-3 top-3 text-gray-400" size={20} />
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows="4"
-                  placeholder="Describe your project..."
-                  className="w-full px-4 py-3 pl-12 bg-gray-50 dark:bg-gray-800 border rounded-lg outline-none text-gray-900 dark:text-white resize-none"
-                />
-              </div>
-            </div>
-
-            {/* Services */}
-            <div>
-              <label className="block text-gray-800 dark:text-white font-semibold mb-4">*Which Services Interest You?</label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Services Section */}
+            <div className="space-y-4">
+              <label className="block text-gray-800 dark:text-white font-semibold text-sm uppercase tracking-wide">
+                Which Services Interest You? *
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { name: 'Social Media Management', icon: <Instagram size={16} /> },
-                  { name: 'Influencer Marketing', icon: <Users size={16} /> },
-                  { name: 'Celebrity Management', icon: <Star size={16} /> },
-                  { name: 'Brand Collaborations', icon: <Star size={16} /> },
-                  { name: 'UGC Content Creation', icon: <MessageCircle size={16} /> },
-                  { name: 'Professional Shoots', icon: <Camera size={16} /> }
+                  { name: 'Social Media Management', icon: <Instagram size={20} />, color: 'from-pink-500 to-red-500' },
+                  { name: 'Influencer Marketing', icon: <Users size={20} />, color: 'from-purple-500 to-pink-500' },
+                  { name: 'Celebrity Management', icon: <Star size={20} />, color: 'from-yellow-500 to-orange-500' },
+                  { name: 'Brand Collaborations', icon: <Sparkles size={20} />, color: 'from-blue-500 to-purple-500' },
+                  { name: 'UGC Content Creation', icon: <MessageCircle size={20} />, color: 'from-green-500 to-blue-500' },
+                  { name: 'Professional Shoots', icon: <Camera size={20} />, color: 'from-indigo-500 to-purple-500' }
                 ].map((service) => (
                   <label
                     key={service.name}
-                    className="flex items-center space-x-3 p-3 rounded-lg border cursor-pointer bg-gray-50 dark:bg-gray-800 hover:border-neon-pink/50"
+                    className={`group relative flex items-center space-x-3 p-4 rounded-xl cursor-pointer ${
+                      formData.services.includes(service.name)
+                        ? 'bg-gradient-to-r ' + service.color + ' text-white shadow-lg scale-105'
+                        : 'bg-gray-50/50 dark:bg-gray-800/50  border border-gray-200 dark:border-gray-700'
+                    }`}
                   >
                     <input
                       type="checkbox"
                       checked={formData.services.includes(service.name)}
                       onChange={() => handleServiceChange(service.name)}
-                      className="w-5 h-5"
+                      className="sr-only"
                     />
-                    <div className="flex items-center space-x-2">
-                      <span className="text-electric-blue">{service.icon}</span>
-                      <span className="text-gray-800 dark:text-white">{service.name}</span>
+                    <div className={`flex-shrink-0 ${formData.services.includes(service.name) ? 'text-white' : 'text-gray-600 dark:text-gray-400'}`}>
+                      {service.icon}
                     </div>
+                    <span className={`text-sm font-medium ${
+                      formData.services.includes(service.name) ? 'text-white' : 'text-gray-800 dark:text-white'
+                    }`}>
+                      {service.name}
+                    </span>
+                    {formData.services.includes(service.name) && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-xl"></div>
+                    )}
                   </label>
                 ))}
               </div>
-              {errors.services && <p className="text-red-500 text-sm mt-1">{errors.services}</p>}
+              {errors.services && <p className="text-red-500 text-sm flex items-center gap-1"><Heart size={14}/>{errors.services}</p>}
             </div>
 
-            {/* Submit */}
+            {/* Message */}
+            <div className="space-y-2">
+              <label className="block text-gray-800 dark:text-white font-semibold text-sm uppercase tracking-wide">
+                Tell Us About Your Project
+              </label>
+              <div className="relative">
+                <MessageCircle className="absolute left-4 top-4 text-gray-400" size={20} />
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows="5"
+                  placeholder="Describe your vision, goals, and how we can help make your brand go viral..."
+                  className="w-full px-4 py-4 pl-12 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300 resize-none"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
             <button
               type="submit"
-              className="w-full px-8 py-4 bg-gradient-to-r from-neon-pink to-electric-blue text-white font-bold rounded-full shadow-lg hover:scale-105 transition-all"
+              className="group w-full relative px-6 py-3 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:shadow-purple-500/25 transform hover:scale-[1.02] transition-all duration-300 overflow-hidden"
             >
-              <Mail size={20} className="inline-block mr-2" />
-              Send Email 📧
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative flex items-center justify-center space-x-3">
+                <Send size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+                <span className="text-lg">Send Message & Let's Create Magic ✨</span>
+              </div>
             </button>
 
             {/* Contact Info */}
-            <div className="text-center pt-6 border-t border-gray-200 dark:border-gray-700">
-              <p className="text-gray-600 dark:text-gray-400 mb-4">Or reach us directly:</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6">
-                <a href="tel:+917078890112" className="flex items-center space-x-2 text-electric-blue hover:text-neon-pink">
-                  <Phone size={16} />
-                  <span>+91 70788 90112</span>
+            <div className="text-center pt-8 border-t border-gray-200/50 dark:border-gray-700/50">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 font-medium">Prefer direct contact?</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <a 
+                  href="tel:+917078890112" 
+                  className="group flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-800/30 dark:hover:to-purple-800/30 transition-all duration-300"
+                >
+                  <Phone size={18} className="text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="font-medium text-gray-800 dark:text-white">+91 70788 90112</span>
                 </a>
-                <a href="mailto:pixelpromptofficial@gmail.com" className="flex items-center space-x-2 text-electric-blue hover:text-neon-pink">
-                  <Mail size={16} />
-                  <span>pixelpromptofficial@gmail.com</span>
+                
+                <a 
+                  href="mailto:pixelpromptofficial@gmail.com" 
+                  className="group flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-lg hover:from-pink-100 hover:to-purple-100 dark:hover:from-pink-800/30 dark:hover:to-purple-800/30 transition-all duration-300"
+                >
+                  <Mail size={18} className="text-pink-600 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="font-medium text-gray-800 dark:text-white">pixelpromptofficial@gmail.com</span>
                 </a>
               </div>
             </div>
 
           </form>
         </div>
+
+        {/* Footer note */}
+        <div className="text-center mt-8">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            🔒 Your information is secure and will only be used to contact you about your project.
+          </p>
+        </div>
+
       </div>
     </div>
   );

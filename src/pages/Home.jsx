@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from '../components/home/Hero.jsx';
 import Services from '../components/home/Services2.jsx';
 
-import VideoShowcase from '../components/VideoSection.jsx';
+// import VideoShowcase from '../components/VideoSection.jsx';
 
 import WhatWeDo from '../components/WhatWeDo.jsx';
 
@@ -18,9 +18,9 @@ const Home = () => {
   return (
     <div className="overflow-x-hidden">
       <Hero />
-      <VideoShowcase/>
-     <WhatWeDo/>
+      {/* <VideoShowcase/> */}
      <WorkComponent/>
+     <WhatWeDo/>
      <Timeline/>
      <Stats/>
       <Services/>
