@@ -40,9 +40,9 @@ const Hero = () => {
   }, [currentText, currentIndex, isDeleting, fullText, wordIndex, words.length]);
 
   return (
-    <section className="min-h-[70vh] md:min-h-screen bg-white dark:bg-black 
+    <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black 
   flex items-center justify-center relative overflow-hidden
-  pt-12 sm:pt-12 md:pt-0">
+  pt-20 sm:pt-22 md:pt-0">
 
 
       {/* Grid Background Pattern */}
