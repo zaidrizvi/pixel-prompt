@@ -22,8 +22,8 @@ const Home = () => {
      <WorkComponent/>
      <WhatWeDo/>
      <Timeline/>
-     <Stats/>
       <Services/>
+     <Stats/>
       <BrandSection/>
       <Stats2/>
       
