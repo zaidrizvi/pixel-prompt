@@ -57,7 +57,6 @@ Sent from Pixel Prompt Contact Form
     `;
 
     const emailUrl = `mailto:pixelpromptofficial@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
     window.open(emailUrl, '_blank');
 
     setFormData({
@@ -68,7 +67,6 @@ Sent from Pixel Prompt Contact Form
       services: []
     });
     setErrors({});
-
     alert('Email opened! Please send it to reach us 📧');
   };
 
@@ -83,17 +81,11 @@ Sent from Pixel Prompt Contact Form
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-pink-900/10 py-16 transition-all duration-500">
-      {/* Background decoration */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-pink-300/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
-
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Header Section */}
         <div className="text-center mb-16">
-          
-          
           <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
               Turn Buzz
@@ -103,15 +95,13 @@ Sent from Pixel Prompt Contact Form
               Into Impact
             </span>
           </h2>
-          
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Transform your brand with cutting-edge digital marketing strategies that actually work.
           </p>
         </div>
 
         {/* Main Form Container */}
-        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/50 dark:border-gray-700/50 shadow-2xl shadow-purple-500/10 transition-all duration-300">
-          
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/50 dark:border-gray-700/50 transition-all duration-300">
           <form onSubmit={handleSubmit} className="space-y-8">
             
             {/* Personal Info Section */}
@@ -126,7 +116,7 @@ Sent from Pixel Prompt Contact Form
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-4 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
+                  className="w-full px-4 py-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
                   required
                 />
                 {errors.name && <p className="text-red-500 text-sm flex items-center gap-1"><Heart size={14}/>{errors.name}</p>}
@@ -144,7 +134,7 @@ Sent from Pixel Prompt Contact Form
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="10 digit number"
-                    className="w-full px-4 py-4 pl-12 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
+                    className="w-full px-4 py-4 pl-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
                     required
                   />
                 </div>
@@ -164,7 +154,7 @@ Sent from Pixel Prompt Contact Form
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-4 pl-12 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
+                  className="w-full px-4 py-4 pl-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300"
                   required
                 />
               </div>
@@ -228,7 +218,7 @@ Sent from Pixel Prompt Contact Form
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows="5"
                   placeholder="Describe your vision, goals, and how we can help make your brand go viral..."
-                  className="w-full px-4 py-4 pl-12 bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-4 pl-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-gray-900 dark:text-white placeholder-gray-500 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all duration-300 resize-none"
                 />
               </div>
             </div>
@@ -249,17 +239,20 @@ Sent from Pixel Prompt Contact Form
             <div className="text-center pt-8 border-t border-gray-200/50 dark:border-gray-700/50">
               <p className="text-gray-600 dark:text-gray-400 mb-6 font-medium">Prefer direct contact?</p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                
+                {/* Phone */}
                 <a 
                   href="tel:+917078890112" 
-                  className="group flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-800/30 dark:hover:to-purple-800/30 transition-all duration-300"
+                  className="group flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-800/30 dark:hover:to-purple-800/30 shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   <Phone size={18} className="text-blue-600 group-hover:scale-110 transition-transform duration-300" />
                   <span className="font-medium text-gray-800 dark:text-white">+91 70788 90112</span>
                 </a>
                 
+                {/* Email */}
                 <a 
                   href="mailto:pixelpromptofficial@gmail.com" 
-                  className="group flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-lg hover:from-pink-100 hover:to-purple-100 dark:hover:from-pink-800/30 dark:hover:to-purple-800/30 transition-all duration-300"
+                  className="group flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-lg hover:from-pink-100 hover:to-purple-100 dark:hover:from-pink-800/30 dark:hover:to-purple-800/30 shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   <Mail size={18} className="text-pink-600 group-hover:scale-110 transition-transform duration-300" />
                   <span className="font-medium text-gray-800 dark:text-white">pixelpromptofficial@gmail.com</span>
@@ -276,7 +269,6 @@ Sent from Pixel Prompt Contact Form
             🔒 Your information is secure and will only be used to contact you about your project.
           </p>
         </div>
-
       </div>
     </div>
   );
