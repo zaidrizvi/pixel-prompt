@@ -15,7 +15,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Portfolio Page -->
+  <!--Services--> 
   <url>
     <loc>https://pixelprompt.net/services</loc>
     <changefreq>weekly</changefreq>
