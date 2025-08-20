@@ -97,7 +97,7 @@ const Services = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-bold text-4xl md:text-6xl lg:text-7xl mb-4 lg:mb-6 leading-tight text-black dark:text-white"
           >
-            Bring to the Table
+           SERVICES WE OFFER
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

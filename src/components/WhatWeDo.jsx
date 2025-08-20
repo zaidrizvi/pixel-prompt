@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 const WhatWeDo = () => {
   const messages = {
     label: "What we do",
-    title: "WE COMBINE",
-    highlight: "CREATIVITY & STRATEGY",
+    title: "At PixelPrompt",
+    highlight: "WE DON’T BELIEVE IN ONE-SIZE-FITS-ALL MARKETING",
     description:
-      "To build partnerships and craft content that scales your brand's digital footprint.",
+      "We sit with you, understand your story, and create strategies that don’t just look good — they work. From content that clicks to campaigns that scale, we help your brand grow where it matters.",
   };
 
   return (
-    <section className="relative bg-white dark:bg-black overflow-hidden py-16 lg:py-24">
+    <section className="relative bg-white dark:bg-black overflow-hidden py-16 lg:py-20">
       {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="w-full h-full grid grid-cols-12">
@@ -55,22 +55,48 @@ const WhatWeDo = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              <h2 className="font-cyber text-4xl lg:text-7xl font-bold text-light-text dark:text-white leading-tight">
+              <h2 className="font-cyber text-3xl lg:text-4xl font-bold text-light-text dark:text-white leading-tight">
                 {messages.title}
               </h2>
             </motion.div>
 
-            {/* Highlight */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <h3 className="font-cyber text-4xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-tight">
-                {messages.highlight}
-              </h3>
-            </motion.div>
+           {/* Highlight */}
+{/* Highlight */}
+{/* Highlight */}
+{/* Highlight */}
+<div className="space-y-2">
+  <motion.h3
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.7, delay: 0.2 }}
+    className="font-cyber text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-snug"
+  >
+    WE DON’T BELIEVE IN
+  </motion.h3>
+
+  <motion.h3
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.7, delay: 0.25 }}
+    className="font-cyber text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-snug"
+  >
+    ONE-SIZE-FITS-ALL
+  </motion.h3>
+
+  <motion.h3
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.7, delay: 0.3 }}
+    className="font-cyber text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-cyber-purple leading-snug"
+  >
+    MARKETING
+  </motion.h3>
+</div>
+
+
 
             {/* Description */}
             <motion.div
@@ -79,37 +105,37 @@ const WhatWeDo = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <p className="text-gray-600 dark:text-light-gray text-lg lg:text-xl font-modern leading-relaxed max-w-3xl">
+              <p className="text-white-600 dark:text-[#dcdfe3] text-lg lg:text-[1.4rem] font-modern leading-relaxed max-w-3xl">
                 {messages.description}
               </p>
             </motion.div>
 
             {/* Gradient line */}
-           <motion.div
-  initial={{ opacity: 0, y: 30, scaleX: 0 }}
-  whileInView={{ opacity: 1, y: 0, scaleX: 1 }}
-  viewport={{ once: true, amount: 0.1 }}
-  transition={{ duration: 0.6, delay: 0.2 }} // pehle 0.8 tha
-  className="pb-10"
-  style={{ transformOrigin: "left" }}
->
-  <div className="w-16 h-0.5 bg-gradient-to-r from-electric-blue to-cyber-purple"></div>
-</motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30, scaleX: 0 }}
+              whileInView={{ opacity: 1, y: 0, scaleX: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="pb-10"
+              style={{ transformOrigin: "left" }}
+            >
+              <div className="w-16 h-0.5 bg-gradient-to-r from-electric-blue to-cyber-purple"></div>
+            </motion.div>
           </div>
 
           {/* Button */}
           <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.1 }}
-  transition={{ duration: 0.6, delay: 0.2 }} // pehle 1.0 tha
->
-  <Link to="/about">
-    <button className="px-6 py-4 text-sm font-semibold rounded-full border border-transparent bg-gradient-to-r from-electric-blue to-cyber-purple text-white shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
-      Behind the Brilliance
-    </button>
-  </Link>
-</motion.div>
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link to="/about">
+              <button className="px-6 py-4 text-sm font-semibold rounded-full border border-transparent bg-gradient-to-r from-electric-blue to-cyber-purple text-white shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+              The PixelPrompt Journey
+              </button>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>

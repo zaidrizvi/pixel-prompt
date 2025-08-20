@@ -32,30 +32,38 @@ const AboutSection = () => {
   const cultureValues = [
     {
       icon: <Rocket size={24} />,
-      title: "Innovation First",
+      title: "We Work With You, Not Just For You",
       description:
-        "We push boundaries and create content that hasn't been seen before.",
+        "We believe in partnerships, not transactions. Your goals become our goals, and we walk every step together as one team.",
       color: "from-neon-pink to-purple-500",
     },
     {
       icon: <Heart size={24} />,
-      title: "Passion Driven",
+      title: "Creators at Heart",
       description:
-        "Every project is a labor of love, crafted with genuine enthusiasm.",
+        "We are creators ourselves. That’s why we understand the new-age culture, trends, and what actually connects with people.",
       color: "from-electric-blue to-cyan-500",
     },
     {
       icon: <Sparkles size={24} />,
-      title: "Creative Excellence",
-      description: "We don't settle for good enough. We create masterpieces.",
+      title: "Growth as a Shared Mission",
+      description:
+        "Your success is our success. We measure our work not in likes, but in the real growth we create together.",
       color: "from-yellow-400 to-orange-500",
     },
     {
       icon: <Coffee size={24} />,
-      title: "Team Spirit",
+      title: "Team Over Everything",
       description:
-        "Late nights, early mornings, and everything in between - together.",
+        "Late nights, early mornings, endless brainstorming we thrive as a team. And when we work with you, you become a part of that team.",
       color: "from-green-400 to-emerald-600",
+    },
+    {
+      icon: <Sparkles size={24} />,
+      title: "Always Evolving",
+      description:
+        "The digital world changes every day, and so do we. We’re quick, adaptable, and always ready to bring the next big idea to the table.",
+      color: "from-yellow-400 to-orange-500",
     },
   ];
 
@@ -87,32 +95,40 @@ const AboutSection = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-20">
+      <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 relative py-20">
         {/* Hero Section */}
+       
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
-          onViewportEnter={() => heroTypewriter.startTyping()}
+          onViewportEnter={() => {
+            if (
+              !heroTypewriter.isComplete &&
+              heroTypewriter.displayText === ""
+            ) {
+              heroTypewriter.startTyping();
+            }
+          }}
           className="text-center mb-20"
         >
           <div className="inline-flex items-center px-6 py-3  from-neon-pink/10 to-electric-blue/10 rounded-full  mb-8 ">
             <Heart className="w-5 h-5 text-neon-pink mr-3" />
             <span className="text-sm font-modern font-medium text-gray-700 dark:text-gray-300">
-              About Our Story
+              The PixelPrompt Journey
             </span>
           </div>
 
-         <h1 className="font-cyber text-3xl md:text-7xl font-bold mb-8 leading-tight text-center bg-gradient-to-r from-neon-pink via-electric-blue to-cyber-purple bg-clip-text text-transparent">
-  {heroTypewriter.displayText}
-</h1>
+          <h1 className="font-cyber text-3xl md:text-[80px] font-bold mb-8 leading-tight text-center bg-gradient-to-r from-neon-pink via-electric-blue to-cyber-purple bg-clip-text text-transparent">
+            {heroTypewriter.displayText}
+          </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-modern">
-            Where creativity meets passion, and every pixel tells a story
+            PixelPrompt started with one simple goal: helping brands grow with
+            ideas that actually work.
           </p>
         </motion.div>
-
         {/* Core Values */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -132,7 +148,7 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {cultureValues.map((value, index) => (
               <motion.div
                 key={index}
@@ -157,7 +173,6 @@ const AboutSection = () => {
             ))}
           </div>
         </motion.div>
-
         {/* Main Story */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -168,38 +183,40 @@ const AboutSection = () => {
         >
           <div>
             <h3 className="text-3xl md:text-4xl font-cyber font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              We Don't Just Create Content, We Create Iconic Brands
+              Pixel Prompt.
+              <br />
+              Your brand, our mission
             </h3>
 
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed font-modern">
-              Pixel Prompt is a Social Media Marketing and Design Agency,
-              currently working with 80 brands across several avenues including
-              food and beverage, lifestyle, beauty, skincare, nutrition, and
-              fashion. We specialize in Social Media Marketing, Design, Content
-              Creation and Influencer Marketing.
+                We’re not an agency that just runs campaigns we become your team.
+                <span className="text-electric-blue
+                "> The ones who brainstorm late, test crazy ideas, track every click, and celebrate every win with you.</span>
+             
             </p>
 
             <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed font-modern">
-              We've worked with bold names like{" "}
+             With 80+ brands across fashion, F&B, beauty, and wellness including names like{" "}
               <strong className="text-neon-pink">G-SHOCK</strong> and{" "}
-              <strong className="text-electric-blue">OPPO</strong>, driving
-              jaw-dropping content reach and unmatched engagement across
-              platforms.
+              <strong className="text-electric-blue">OPPO </strong>
+                we’ve seen one truth: growth comes when your brand feels understood.
             </p>
-
-            <div className="space-y-4 mb-8">
+            <h3 className="text-2xl md:text-3xl font-cyber font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              How we work with you:
+            </h3>
+            <div className="space-y-4 mb-12">
               {[
-                "Viral Content Creation & Strategy",
-                "Celebrity & Influencer Management",
-                "Brand Collaboration Expertise",
-                "User-Generated Content Campaigns",
+                "We understand your audience, like it’s our own",
+                "We create content that feels authentic, not forced",
+                "We connect you with influencers/creators who actually move the needle",
+                "We treat your wins like they’re ours because they are.",
               ].map((point, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
                   className="flex items-center space-x-3"
                 >
                   <CheckCircle className="w-5 h-5 text-neon-pink flex-shrink-0" />
@@ -209,6 +226,10 @@ const AboutSection = () => {
                 </motion.div>
               ))}
             </div>
+            <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed font-modern">
+              If you’re looking for a team that cares about your brand as much
+              as you do you’ve just found them.
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -236,7 +257,6 @@ const AboutSection = () => {
             </div>
           </div>
         </motion.div>
-
         {/* Stats */}
         <Stats />
       </div>

@@ -177,12 +177,7 @@ const InfluencerMarketing = () => {
                   target audience, driving engagement, conversions, and brand awareness.
                 </p>
                 
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="text-cyber-purple font-semibold">Our team manages campaigns from strategy to 
-                  execution</span>
-                  <span className="text-light-text dark:text-dark-text">, ensuring seamless integration and maximum 
-                  ROI.</span>
-                </p>
+                
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-neon-pink">

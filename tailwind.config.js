@@ -46,7 +46,7 @@ export default {
       },
       
       fontFamily: {
-        'cyber': ['Orbitron', 'monospace'],
+        'cyber': ['Nikea','Orbitron', 'monospace'],
         'modern': ['Inter', 'system-ui', 'sans-serif'],
         // Additional font option
         'heading': ['Rajdhani', 'Inter', 'sans-serif']

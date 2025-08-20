@@ -6,7 +6,7 @@ import Services from '../components/home/Services2.jsx';
 
 import WhatWeDo from '../components/WhatWeDo.jsx';
 
-import Timeline from '../components/Timeline.jsx';
+// import Timeline from '../components/Timeline.jsx';
 import Stats from '../components/Stats.jsx';
 import Stats2 from '../components/Stats2.jsx';
 import BrandSection from '../components/BrandSection.jsx';
@@ -21,7 +21,7 @@ const Home = () => {
       {/* <VideoShowcase/> */}
      <WorkComponent/>
      <WhatWeDo/>
-     <Timeline/>
+     {/* <Timeline/> */}
       <Services/>
      <Stats/>
       <BrandSection/>

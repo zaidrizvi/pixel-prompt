@@ -20,7 +20,7 @@ import ContentCreation from "./components/Services/ContentCreation .jsx";
 import InfluencerMarketing from "./components/Services/InflencerMarketing.jsx";
 import SocialMediaMarketing from "./components/Services/SocialMediaMarketing .jsx";
 import Celebrity from "./components/Services/Celebrity.jsx";
-import ProfessionalShoots from "./components/Services/ProfessionalShoots.jsx";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,7 +81,7 @@ function App() {
                 <Route path="/services/influencer" element={<InfluencerMarketing/>} />
                 <Route path="/services/social-media" element={<SocialMediaMarketing/>} />
                 <Route path="/services/celebrity" element={<Celebrity/>} />
-                <Route path="/services/professional" element={<ProfessionalShoots/>} />
+               
                 
             </Routes>
             <Footer />

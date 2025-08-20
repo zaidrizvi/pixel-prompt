@@ -45,12 +45,11 @@ const Footer = () => {
       {/* Top CTA Section */}
       <div className="text-center py-12 px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Elevate Your Influence with{" "}
-          <span className="text-neon-pink">Pixel Prompt</span>
+         Your Goals, Our Game Plan
         </h2>
         <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-          Explore, Collaborate, Innovate, and Achieve with India’s #1 social
-          media marketing agency.
+         Pixel Prompt isn’t just an agency we’re your extended team. From ideas to execution, we
+work side-by-side with you to make sure your brand not only shows up, but stands out.
         </p>
         <motion.a
           whileHover={{ scale: 1.05 }}
@@ -58,7 +57,8 @@ const Footer = () => {
           href="/contact"
           className="px-6 py-3 rounded-full bg-gradient-to-r from-neon-pink to-electric-blue text-white font-semibold shadow-lg hover:shadow-neon-pink/20 transition"
         >
-          Let’s Collaborate
+         Work With Us
+
         </motion.a>
       </div>
 

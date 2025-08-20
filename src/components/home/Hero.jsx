@@ -9,42 +9,66 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
 
-  const words = ["IMPACT," , "VISIONS," , "CULTURE,",  "DEMAND,"
-    ];
+  const words = ["IMPACT,", "VISIONS,", "CULTURE,", "DEMAND,"];
   const fullText = words[wordIndex];
+
+  // New array for tagline rotation
+  const taglines = [
+    "Turning Ideas into Results",
+    "Building Brands People Remember",
+    "Powered by Creators, Built for Growth"
+  ];
+  const [currentTagline, setCurrentTagline] = useState("");
+  const [taglineIndex, setTaglineIndex] = useState(0);
+  const [taglineCharIndex, setTaglineCharIndex] = useState(0);
+  const [isDeletingTagline, setIsDeletingTagline] = useState(false);
 
   const handleGetStarted = () => navigate("/contact");
   const handleViewPortfolio = () => navigate("/portfolio");
 
-  // Typewriter effect
+  // Typewriter effect for main words
   useEffect(() => {
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting && currentIndex < fullText.length) {
-          setCurrentText((prev) => prev + fullText[currentIndex]);
-          setCurrentIndex((prev) => prev + 1);
-        } else if (isDeleting && currentText.length > 0) {
-          setCurrentText((prev) => prev.slice(0, -1));
-        } else if (!isDeleting && currentIndex === fullText.length) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        } else if (isDeleting && currentText.length === 0) {
-          setIsDeleting(false);
-          setCurrentIndex(0);
-          setWordIndex((prev) => (prev + 1) % words.length);
-        }
-      },
-      isDeleting ? 100 : 200
-    );
+    const timeout = setTimeout(() => {
+      if (!isDeleting && currentIndex < fullText.length) {
+        setCurrentText((prev) => prev + fullText[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      } else if (isDeleting && currentText.length > 0) {
+        setCurrentText((prev) => prev.slice(0, -1));
+      } else if (!isDeleting && currentIndex === fullText.length) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && currentText.length === 0) {
+        setIsDeleting(false);
+        setCurrentIndex(0);
+        setWordIndex((prev) => (prev + 1) % words.length);
+      }
+    }, isDeleting ? 100 : 200);
 
     return () => clearTimeout(timeout);
   }, [currentText, currentIndex, isDeleting, fullText, wordIndex, words.length]);
 
+  useEffect(() => {
+  const currentFullTagline = taglines[taglineIndex];
+  const timeout = setTimeout(() => {
+    if (!isDeletingTagline && taglineCharIndex < currentFullTagline.length) {
+      setCurrentTagline((prev) => prev + currentFullTagline[taglineCharIndex]);
+      setTaglineCharIndex((prev) => prev + 1);
+    } else if (isDeletingTagline && currentTagline.length > 0) {
+      setCurrentTagline((prev) => prev.slice(0, -1));
+    } else if (!isDeletingTagline && taglineCharIndex === currentFullTagline.length) {
+      setTimeout(() => setIsDeletingTagline(true), 1000); // shorter pause
+    } else if (isDeletingTagline && currentTagline.length === 0) {
+      setIsDeletingTagline(false);
+      setTaglineCharIndex(0);
+      setTaglineIndex((prev) => (prev + 1) % taglines.length);
+    }
+  }, isDeletingTagline ? 40 : 50); // faster typing and deleting
+
+  return () => clearTimeout(timeout);
+}, [currentTagline, taglineCharIndex, isDeletingTagline, taglines, taglineIndex]);
+
+
   return (
-    <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black 
-  flex items-center justify-center relative overflow-hidden
-  pt-24 sm:pt-24 md:pt-0">
-
-
+    <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black flex items-center justify-center relative overflow-hidden pt-24 sm:pt-24 md:pt-0">
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
@@ -57,12 +81,9 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          {/* Main Heading - Finnet Style */}
           <div className="space-y-6">
             <motion.h1 
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight  tracking-[-1px]
-
-"
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-[-1px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -71,8 +92,7 @@ const Hero = () => {
               <span className="text-neon-pink">
                 {currentText}
                 <motion.span
-  className="inline-block w-1 h-16 sm:h-20 md:h-24 bg-orange-500 ml-2"
-
+                  className="inline-block w-1 h-16 sm:h-20 md:h-24 bg-orange-500 ml-2"
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
@@ -83,13 +103,19 @@ const Hero = () => {
               <span className="text-black dark:text-white">.</span>
             </motion.h1>
 
+            {/* Rotating Tagline */}
             <motion.p
               className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto font-mono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              The new standard for creator-led marketing
+              {currentTagline}
+              <motion.span
+                className="inline-block w-1 h-6 bg-gray-600 ml-1"
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              />
             </motion.p>
           </div>
 
@@ -106,10 +132,8 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started
+              Work With Us
             </motion.button>
-
-            
           </motion.div>
         </motion.div>
       </div>

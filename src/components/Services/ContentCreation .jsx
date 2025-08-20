@@ -168,12 +168,7 @@ const ContentCreation = () => {
                   create more content that resonates with your target group! 
                 </p>
                 
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="text-electric-blue font-semibold">Our scope of work also includes</span>
-                  <span className="text-light-text dark:text-dark-text"> – ideating and conceptualizing 
-                  photo and video shoots, collecting BTS content, shooting candid content for reels 
-                  and stories.</span>
-                </p>
+                
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-neon-pink">

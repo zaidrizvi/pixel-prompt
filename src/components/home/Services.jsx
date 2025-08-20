@@ -60,7 +60,7 @@ const Services = () => {
     return { displayText, isComplete, setShouldStart };
   };
 
-  const headerTypewriter = useTypewriter("Bring to the Table", 50, 0);
+  const headerTypewriter = useTypewriter("SERVICES WE OFFER", 50, 0);
   const subtitleTypewriter = useTypewriter(
     "Our Services: From Idea to Impact",
     30,
@@ -108,14 +108,7 @@ const Services = () => {
       buttonText: "Know More",
       type: "influencer",
     },
-    {
-      number: "06",
-      title: "Professional Shoots",
-      description:
-        "High-quality photo and video shoots that showcase your brand in the most compelling light.",
-      buttonText: "Know More",
-      type: "shoots",
-    }
+    
   ];
 
   return (
@@ -168,7 +161,7 @@ const Services = () => {
         </motion.div>
 
         {/* Services Grid - Individual card animations */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -176,8 +169,8 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{
-                delay: index * 0.15,
-                duration: 0.6,
+                delay: index * 0.10,
+                duration: 0.3,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className="group relative bg-gray-900 rounded-3xl overflow-hidden border border-gray-700 cursor-pointer min-h-[400px] lg:min-h-[450px]"

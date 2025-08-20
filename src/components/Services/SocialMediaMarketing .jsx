@@ -186,12 +186,7 @@ const SocialMediaMarketing = () => {
                   even revenue!
                 </p>
                 
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="text-electric-blue font-semibold">Our scope of work includes</span>
-                  <span className="text-light-text dark:text-dark-text"> – designing social media artwork, 
-                  establishing uniform brand communication, ideating and executing various promotional 
-                  campaigns, setting and defining a hashtag strategy, and optimizing organic and paid traction.</span>
-                </p>
+               
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-neon-pink">

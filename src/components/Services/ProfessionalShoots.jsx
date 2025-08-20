@@ -169,12 +169,7 @@ const ProfessionalShoots = () => {
                   capture your brand's essence and professionalism.
                 </p>
                 
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="text-electric-blue font-semibold">Our expert team handles every detail</span>
-                  <span className="text-light-text dark:text-dark-text"> – from initial concept 
-                  development and location setup to final post-production editing, ensuring 
-                  your brand imagery meets the highest industry standards.</span>
-                </p>
+                
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-neon-pink">

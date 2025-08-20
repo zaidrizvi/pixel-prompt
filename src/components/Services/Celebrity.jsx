@@ -170,12 +170,7 @@ const Celebrity = () => {
                   aligns with your brand's identity and audience.
                 </p>
                 
-                <p className="text-lg lg:text-xl leading-relaxed">
-                  <span className="text-electric-blue font-semibold">From A-list celebrities to rising digital stars,</span>
-                  <span className="text-light-text dark:text-dark-text"> we manage the entire process 
-                  from sourcing and negotiations to campaign execution—ensuring your brand makes a 
-                  bold, memorable impact in the market.</span>
-                </p>
+                
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-neon-pink">
