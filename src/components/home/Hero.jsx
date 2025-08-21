@@ -15,10 +15,7 @@ const Hero = () => {
 
   // New array for tagline rotation
   
-  const [currentTagline, setCurrentTagline] = useState("");
-  const [taglineIndex, setTaglineIndex] = useState(0);
-  const [taglineCharIndex, setTaglineCharIndex] = useState(0);
-  const [isDeletingTagline, setIsDeletingTagline] = useState(false);
+  
 
   const handleGetStarted = () => navigate("/contact");
   
@@ -66,12 +63,22 @@ const Hero = () => {
       {/* Grid Background Pattern */}
        
       {/* Subtle grid background */}
-  <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-20">
+  <div className="absolute top-28 sm:top-8 left-0 right-0 bottom-0 opacity-30">
   {/* Grid background */}
-  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.55)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:150px_150px]"></div>
+  <div className="absolute inset-0 
+  bg-[linear-gradient(rgba(0,0,0,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.9)_1px,transparent_1px)] 
+  dark:bg-[linear-gradient(rgba(255,255,255,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.9)_1px,transparent_1px)] 
+  bg-[size:90px_80px] sm:bg-[size:150px_150px]">
+</div>
+
 
   {/* Softer top & bottom fade */}
-  <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/70 dark:from-black/40 dark:via-transparent dark:to-black/70"></div>
+  {/* Vertical fade (existing) */}
+<div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/70 dark:from-black/80 dark:via-transparent dark:to-black/70"></div>
+
+{/* Horizontal fade (new) */}
+<div className="absolute inset-0 bg-gradient-to-r from-white/70 via-transparent to-white/80 dark:from-black/80 dark:via-transparent dark:to-black/80"></div>
+
 </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

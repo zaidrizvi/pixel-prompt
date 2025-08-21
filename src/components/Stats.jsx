@@ -116,12 +116,13 @@ export default function Stats() {
 
         
          {/* Subtle grid background */}
-  <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-20">
+  <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-40">
   {/* Grid background */}
-  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.55)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:150px_150px]"></div>
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.55)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:100px_100px] sm:bg-[size:150px_150px]"></div>
 
   {/* Softer top & bottom fade */}
-  <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/70 dark:from-black/40 dark:via-transparent dark:to-black/70"></div>
+   <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/70 dark:from-black/70 dark:via-transparent dark:to-black/70"></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-white/30 dark:from-black/70 dark:via-transparent dark:to-black/80"></div>
 </div>
       <div className="grid grid-rows-4 gap-24 max-w-5xl mx-auto w-full">
         
