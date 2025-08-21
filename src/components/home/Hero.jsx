@@ -63,12 +63,12 @@ const Hero = () => {
       {/* Grid Background Pattern */}
        
       {/* Subtle grid background */}
-  <div className="absolute top-28 sm:top-8 left-0 right-0 bottom-0 opacity-30">
+  <div className="absolute top-28 sm:top-8 left-0 right-0 sm:left-28 sm:right-28 bottom-0 opacity-30">
   {/* Grid background */}
   <div className="absolute inset-0 
   bg-[linear-gradient(rgba(0,0,0,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.9)_1px,transparent_1px)] 
   dark:bg-[linear-gradient(rgba(255,255,255,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.9)_1px,transparent_1px)] 
-  bg-[size:90px_80px] sm:bg-[size:150px_150px]">
+  bg-[size:90px_80px] sm:bg-[size:140px_130px]">
 </div>
 
 
@@ -77,7 +77,7 @@ const Hero = () => {
 <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/70 dark:from-black/80 dark:via-transparent dark:to-black/70"></div>
 
 {/* Horizontal fade (new) */}
-<div className="absolute inset-0 bg-gradient-to-r from-white/70 via-transparent to-white/80 dark:from-black/80 dark:via-transparent dark:to-black/80"></div>
+<div className="absolute inset-0 bg-gradient-to-r from-white/120 via-transparent to-white/90 dark:from-black/70 dark:via-transparent dark:to-black/80 sm:dark:from-black/100 sm:dark:via-transparent sm:dark:to-black/100"></div>
 
 </div>
 
@@ -97,7 +97,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-             <span className="inline-block whitespace-nowrap bg-gradient-to-r from-white via-pink-200 to-[#ff0080] bg-clip-text text-transparent mb-8">
+             <span className="inline-block whitespace-nowrap bg-gradient-to-r from-black via-black to-black dark:from-white dark:via-pink-100 dark:to-[#ff0080] bg-clip-text text-transparent mb-8">
 
 
                 {currentText}
