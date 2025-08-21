@@ -69,16 +69,14 @@ const Hero = () => {
 
   return (
     <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black flex items-center justify-center relative overflow-hidden pt-24 sm:pt-24 md:pt-0">
-      <h1 className="sr-only">
-  Welcome to Pixel Prompt – Digital Marketing Agency
+  <h1 className="sr-only">
+  Pixel Prompt – Digital Marketing Agency
 </h1>
 
-<h2 className="sr-only">Pixel Prompt: Turning Ideas into Results for Brands
+<h2 className="sr-only">
+  Pixel Prompt: Turning Ideas into Results for Brands
 </h2>
 
- <h2 className="sr-only">
-  Pixel Prompt helps brands grow with social media marketing, influencer campaigns, and creative content strategy.
-</h2>
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
