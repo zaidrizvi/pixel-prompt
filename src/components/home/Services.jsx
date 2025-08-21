@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 const Services = () => {
   const navigate = useNavigate();
 
@@ -114,6 +114,10 @@ const Services = () => {
   return (
     <section className="bg-black py-16 lg:py-24 relative overflow-hidden min-h-screen">
       {/* Subtle grid background */}
+
+      <Helmet>
+        <link rel="canonical" href="https://pixelprompt.net/services" />
+      </Helmet>
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="grid grid-cols-12 h-full">
           {Array.from({ length: 12 }).map((_, i) => (
