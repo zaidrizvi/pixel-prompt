@@ -105,9 +105,19 @@ export default function Stats2() {
 
   return (
     <section
-      ref={sectionRef}
-      className="w-full min-h-[600px] flex flex-col gap-24 justify-center bg-black dark:bg-black px-2 py-12 md:py-24"
-    >
+  ref={sectionRef}
+  className="relative w-full min-h-[800px] flex flex-col gap-24 justify-center bg-black dark:bg-black px-2 py-12 md:py-24"
+>
+   {/* Subtle grid background */}
+  <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-20">
+  {/* Grid background */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.55)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:150px_150px]"></div>
+
+  {/* Softer top & bottom fade */}
+  <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/70 dark:from-black/40 dark:via-transparent dark:to-black/70"></div>
+</div>
+
+      
       <div className="grid grid-rows-3 gap-24 max-w-5xl mx-auto w-full">
         {statsData.map((stat, index) => (
           <div

@@ -14,24 +14,14 @@ const WhatWeDo = () => {
   return (
     <section className="relative bg-white dark:bg-black overflow-hidden py-16 lg:py-20">
       {/* Grid background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="w-full h-full grid grid-cols-12">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              key={i}
-              className="border-l border-gray-200 dark:border-white/10"
-            />
-          ))}
-        </div>
-        <div className="absolute inset-0 grid grid-rows-8">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div
-              key={i}
-              className="border-t border-gray-200 dark:border-white/10"
-            />
-          ))}
-        </div>
-      </div>
+      <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-20">
+  {/* Grid background */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.55)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:150px_150px]"></div>
+  
+  {/* Bottom fade overlay */}
+ <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/70 dark:from-black/40 dark:via-transparent dark:to-black/70"></div>
+</div>
+
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
