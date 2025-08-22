@@ -109,7 +109,7 @@ export default function Stats2() {
   className="relative w-full min-h-[800px] flex flex-col gap-24 justify-center bg-black dark:bg-black px-2 py-12 md:py-24"
 >
    {/* Subtle grid background */}
-  <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-40">
+  <div className="absolute top-12 sm:top-8 left-0 right-0 bottom-0 opacity-50">
   {/* Grid background */}
   <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.55)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:100px_100px] sm:bg-[size:150px_150px]"></div>
 

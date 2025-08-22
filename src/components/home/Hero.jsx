@@ -63,7 +63,7 @@ const Hero = () => {
       {/* Grid Background Pattern */}
        
       {/* Subtle grid background */}
-  <div className="absolute top-28 sm:top-8 left-0 right-0 sm:left-28 sm:right-28 bottom-0 opacity-30">
+  <div className="absolute top-28 sm:top-8 left-0 right-0 sm:left-28 sm:right-28 bottom-0 opacity-35">
   {/* Grid background */}
   <div className="absolute inset-0 
   bg-[linear-gradient(rgba(0,0,0,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.9)_1px,transparent_1px)] 
