@@ -151,7 +151,7 @@ const BrandSectionImproved = () => {
   const [scrollWidth, setScrollWidth] = useState(0);
   const [imageErrors, setImageErrors] = useState({});
 
-  const SPEED = 150; // pixels per second
+  const SPEED = 100; 
 
   useEffect(() => {
     const updateScrollWidth = () => {
