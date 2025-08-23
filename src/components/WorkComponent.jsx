@@ -109,12 +109,15 @@ const to = (url) => {
 
 </div>
       {/* header */}
-      <motion.h2
-        variants={card}
-        className="text-center text-5xl font-bold mb-16"
-      >
-        Our <span className='bg-light dark:bg-black text-gray-900 dark:text-pink-600'>Work</span>
-      </motion.h2>
+     <div className="relative z-10">
+  <motion.h2
+    variants={card}
+    className="text-center text-5xl font-bold mb-16"
+  >
+    Our <span className='bg-light dark:bg-black text-gray-900 dark:text-pink-600'>Work</span>
+  </motion.h2>
+</div>
+
 
       {/* carousel */}
       <div
