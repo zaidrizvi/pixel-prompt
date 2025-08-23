@@ -54,11 +54,27 @@ const Hero = () => {
 
   return (
     <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black flex items-center justify-center relative overflow-hidden pt-28 sm:pt-24 ">
-      <h1 className="sr-only">Pixel Prompt – Digital Marketing Agency</h1>
 
-      <h2 className="sr-only">
-        Pixel Prompt: Turning Ideas into Results for Brands
-      </h2>
+    <div className="sr-only">
+  <h1>Pixel Prompt – Digital Marketing Agency</h1>
+  <h2>Pixel Prompt: Turning Ideas into Results for Brands</h2>
+  <p>
+    Pixel Prompt is a digital marketing agency that helps brands grow through social media management,
+    influencer marketing, content creation, and brand strategy. We turn ideas into measurable results.
+  </p>
+
+  <h2>Our Services</h2>
+  <ul>
+    <li>Social Media Marketing</li>
+    <li>Influencer Marketing</li>
+    <li>Content Creation</li>
+    <li>Celebrity Marketing</li>
+  </ul>
+
+
+</div>
+
+
 
       {/* Grid Background Pattern */}
        
