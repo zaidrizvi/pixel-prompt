@@ -54,6 +54,11 @@ const Hero = () => {
 
   return (
     <section className="min-h-[60vh] md:min-h-screen bg-white dark:bg-black flex items-center justify-center relative overflow-hidden pt-28 sm:pt-24 ">
+    <noscript>
+  <h1>Welcome to PixelPrompt (Pixel Prompt) – Your Digital Marketing Partner</h1>
+  <p>PixelPrompt, also known as Pixel Prompt, helps brands grow through social media, influencer marketing, and content creation.</p>
+</noscript>
+
 
     <div className="sr-only">
   <h1>Pixel Prompt – Digital Marketing Agency</h1>
